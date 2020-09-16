@@ -173,6 +173,11 @@ function exportArtboardAdvanced(artboard: Artboard, data: ArtboardData, savePath
         scale: 2,
     }, savePath + "/preview", data.slug);
 
+    exportImage(artboard, {
+        format: 'png',
+        scale: 0.5,
+    }, savePath + "/thumbnail", data.slug);
+
     writeFile({
         content: "<meta http-equiv=\"refresh\" content=\"0;url=../index.html#artboard" + index + "\">",
         path: savePath + "/links",

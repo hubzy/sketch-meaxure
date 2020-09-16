@@ -1,33 +1,47 @@
 # Sketch MeaXure
 
-> Thanks [@utom](https://github.com/utom) for his great work, `Sketch Measure` is really a life saver when I share design specifications to co-workers.
-> But it lack of maintenance in recent year, that's why I start this project.
+> 感谢[@utom](https://github.com/utom)、[@jebbs](https://github.com/qjebbs)
+> 插件由原来的[@utom](https://github.com/utom)的`Sketch Measure`升级到[jebbs](https://github.com/qjebbs) `Sketch MeaXure`
+> 而我在[jebbs](https://github.com/qjebbs) `Sketch MeaXure`的基础上进行优化升级
 
-Sketch MeaXure is a re-implemention of `Sketch Measure` with TypeScript, uses Sketch JavaScript API. 
+Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用Sketch JavaScript API。
 
-It aims to be:
+其目标是：
 
-1. More stable, not likely to break down after Sketch update.
-1. Easy to maintain.
+1. 更稳定，更新Sketch后不会崩溃。
+1. 易于维护。
+1. 完善用户体验
 
-## Improvements
+## 改进
 
-Improvements that users can recognize:
+用户可以识别的改进：
+1. 完全适用于最新版本的Sketch（v66）。
+1. 最新的`色调`功能支持。
+1. 轻松调整标记的大小，而不必担心破坏它们。 （`调整大小限制`功能）。
+1. 在激活`动画堆栈`的情况下直接导出。
+1. 自定义导出画板的顺序。
+1. 更好地显示文本片段。
+1. 重新组织功能和面板。
+[@jebbs](https://github.com/qjebbs/sketch-meaxure)GitHub
 
-1. Fully works with lastest version of Sketch (v66).
-1. The latest `Tint` feature support.
-1. Easily resize markers, without concerns to break them. (The `resizing constrain` feature).
-1. Export directly with `Anima stacks` activated.
-1. Customize the order of exported artboards.
-1. Better display of text fragments.
-1. Re-organize functions and panels.
+## 二次改进
+1. 将 `css` `js `文件使用外链的形式引入,方便统一升级，统一管理、当然你可以改为静态资源引入。
+1. 由原来单一的暗色🌛 模式上新增亮色🌞模式可一键切换并记录模式在本地、同时也对css文件进行大量的优化调整。
+1. 新增点击复制功能，在点击元素弹出的详细信息中，可以对css等信息点击复制。
+1. 添加瀑布流展示、方便预览、查找设计稿
+1. 优化键盘操作，用原来的空格拖动调整为`ctrl`+`鼠标移动`、由原来的`ctrl`+`+` / `-`放大缩小调整为`ctrl`+ `鼠标滚轮`。
+1. 导出新增`thumbnail`文件夹，文件夹放置缩略图，便于网络跟快的加载。
+1. 切图素材可点击下载---“本地打开index.html无法直接下载”，部署到线上或者通过IP网络的形式访问可一键下载。
+1. 新增可选择`像素(px)2x、3x`倍数选项切换、设计稿建议为一倍图，默认导出即可。
+1. 在代码提示中新增width、height代码，对字体信息进行了优化，修复切换倍数时字体倍数不变的bug、圆角边框的还有同样的问题优化中。
 
-## Notice
 
-If you encounter problems managing (toggle hidden/locked, remove, and export) markers created by Sketch Measure, run the menu `Plugin - Sketch MeaXure - Help - Rename Old Markers`.
+## 注意
 
-## Installation
+如果您在管理由Sketch Measure创建的标记（切换隐藏/锁定，删除和导出）时遇到问题，请运行菜单“插件-Sketch MeaXure-帮助-重命名旧标记”。
 
-- [Download](https://github.com/qjebbs/sketch-meaxure/releases/latest/download/sketch-meaxure.sketchplugin.zip) the latest release of the plugin
-- Un-zip
-- Double-click on Sketch-Meaxure.sketchplugin
+## 安装
+
+- [下载](https://gitee.com/hubzyy/sketch-meaxure/attach_files/478762/download)该插件的最新版本
+- 解压缩
+- 双击Sketch-Meaxure.sketchplugin
