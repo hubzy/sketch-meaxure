@@ -12,7 +12,7 @@
   "skpm": {
     "name": "Sketch MeaXure",
     "manifest": "src/manifest.json",
-    "homepage": "https://github.com/qjebbs",
+    "homepage": "https://gitee.com/hubzyy/sketch-meaxure",
     "appcast": "appcast.xml",
     "main": "sketch-meaxure.sketchplugin",
     "assets": [

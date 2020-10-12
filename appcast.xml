@@ -2,9 +2,12 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>Sketch MeaXure</title>
-    <link>https://raw.githubusercontent.com/qjebbs/sketch-meaxure/master/appcast.xml</link>
+    <link>https://gitee.com/hubzyy/sketch-meaxure/raw/master/appcast.xml</link>
     <description>Make it a fun to create spec for developers and teammates</description>
     <language>en</language>
+    <item>
+      <enclosure url="https://github.com/qjebbs/sketch-meaxure/releases/download/v3.2.9/sketch-meaxure.sketchplugin.zip" sparkle:version="3.3.0"/>
+    </item>
     <item>
       <enclosure url="https://github.com/qjebbs/sketch-meaxure/releases/download/v3.2.9/sketch-meaxure.sketchplugin.zip" sparkle:version="3.2.9"/>
     </item>
