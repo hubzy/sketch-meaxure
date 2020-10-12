@@ -13,7 +13,7 @@
     "name": "Sketch MeaXure",
     "manifest": "src/manifest.json",
     "homepage": "https://gitee.com/hubzyy/sketch-meaxure",
-    "appcast": "appcast.xml",
+    "appcast": "https://gitee.com/hubzyy/sketch-meaxure/raw/master/appcast.xml",
     "main": "sketch-meaxure.sketchplugin",
     "assets": [
       "resources/**/*"
