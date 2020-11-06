@@ -6,6 +6,7 @@ import { LayerData, ArtboardData, SMType } from "../interfaces";
 import { stopwatch } from ".";
 import { getLayerData } from "./layerData";
 import { tempLayers } from "./tempLayers";
+import { pushStackIfHasTint } from "./tint";
 
 export function getSymbol(artboard: Artboard, layer: SymbolInstance, layerData: LayerData, data: ArtboardData, byInfluence: boolean) {
     if (layerData.type != SMType.symbol) return;
@@ -22,6 +23,8 @@ export function getSymbol(artboard: Artboard, layer: SymbolInstance, layerData: 
     // do not trigger layer re-arrange from 3rd-party plugins, e.g.: Anima
     tempInstance.parent = artboard;
     tempInstance.frame = layer.frame.changeBasis({ from: layer.parent as Group, to: artboard });
+    // make sure it doesn't make another duplicated flow layer
+    tempInstance.flow = undefined;
     let tempGroup = tempInstance.detach({ recursively: false });
     tempLayers.add(tempGroup);
 
@@ -31,6 +34,8 @@ export function getSymbol(artboard: Artboard, layer: SymbolInstance, layerData: 
         masterAllLayers.splice(1, 0, undefined);
     }
     // stopwatch.tik('create temp detached symbol');
+    // should keep its tint, though temp group is ignored
+    pushStackIfHasTint(instanceAllLayers[0]);
     // starts from 1, skip temp group which is create on detach
     for (let i = 1; i < instanceAllLayers.length; i++) {
         let instanceLayer = instanceAllLayers[i];

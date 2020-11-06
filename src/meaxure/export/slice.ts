@@ -31,13 +31,15 @@ export function getSlice(layer: Layer, layerData: LayerData, symbolLayer: Layer)
     }
     if (!sliceLayer) return;
     let layerID = sliceLayer.id;
+    let layerName = sliceLayer.name;
+    layerData.objectID = layerID;
     // export it, if haven't yet
     if (!sliceCache[layerID]) {
         NSFileManager.defaultManager()
             .createDirectoryAtPath_withIntermediateDirectories_attributes_error(assetsPath, true, nil, nil);
         sliceCache[layerID] = layerData.exportable = getExportable(sliceLayer);
         slices.push({
-            name: layerData.name,
+            name: layerName,
             objectID: layerID,
             rect: layerData.rect,
             exportable: layerData.exportable
@@ -54,44 +56,44 @@ function getExportable(layer: Layer): SMExportable[] {
     let exportFormats: SMExportFormat[];
     if (context.configs.units == "dp/sp" && matchFormat) {
         exportFormats = [{
-            scale: 1 / context.configs.scale,
+            scale: 1 / context.configs.resolution,
             prefix: "drawable-mdpi/",
             format: fileFormat
         },
         {
-            scale: 1.5 / context.configs.scale,
+            scale: 1.5 / context.configs.resolution,
             prefix: "drawable-hdpi/",
             format: fileFormat
         },
         {
-            scale: 2 / context.configs.scale,
+            scale: 2 / context.configs.resolution,
             prefix: "drawable-xhdpi/",
             format: fileFormat
         },
         {
-            scale: 3 / context.configs.scale,
+            scale: 3 / context.configs.resolution,
             prefix: "drawable-xxhdpi/",
             format: fileFormat
         },
         {
-            scale: 4 / context.configs.scale,
+            scale: 4 / context.configs.resolution,
             prefix: "drawable-xxxhdpi/",
             format: fileFormat
         }
         ]
     } else if (context.configs.units == "pt" && matchFormat) {
         exportFormats = [{
-            scale: 1 / context.configs.scale,
+            scale: 1 / context.configs.resolution,
             suffix: "",
             format: fileFormat
         },
         {
-            scale: 2 / context.configs.scale,
+            scale: 2 / context.configs.resolution,
             suffix: "@2x",
             format: fileFormat
         },
         {
-            scale: 3 / context.configs.scale,
+            scale: 3 / context.configs.resolution,
             suffix: "@3x",
             format: fileFormat
         }
