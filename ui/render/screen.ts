@@ -1,5 +1,4 @@
-import { state } from "../common";
-import { timestamp } from "../common";
+import { state,timestamp} from "../common";
 import { zoomSize } from "./helper";
 import { flowMode } from "../events/flow";
 
@@ -20,7 +19,7 @@ export function updateScreen(resetScroll: boolean = false) {
         viewerInner.style.height = zoomSize(state.current.height) + 'px';
         screen.style.marginLeft = '0';
         screen.style.marginTop = '0';
-        document.querySelector('.screen-viewer').scrollTop = 0;
+        viewer.scrollTop = 0;
         return;
     } else {
         viewerInner.style.width = maxSize + 'px';
@@ -31,6 +30,7 @@ export function updateScreen(resetScroll: boolean = false) {
     // set scroll
     if (resetScroll) {
         viewer.scrollLeft = flowMode ? 0 : (maxSize - viewer.clientWidth) / 2;
-        viewer.scrollTop = flowMode ? 0 : (maxSize - viewer.clientHeight) / 2;
+        let suitHight = screen.clientHeight > viewer.clientHeight ? screen.clientHeight :viewer.clientHeight;
+        viewer.scrollTop = flowMode ? 0 : (maxSize - suitHight) / 2;
     }
 }
