@@ -19,19 +19,40 @@ compiler.run((err, stats) => {
     if (stats.hasErrors()) {
         throw new Error(stats.toJson().errors);
     }
+    let templateJs = makeTemplateJs(outputFileSystem, __dirname + '/index.js');
+    let templateCss = makeTemplateCss(outputFileSystem, __dirname + '/index.js');
     let template = makeTemplate(outputFileSystem, __dirname + '/index.js');
     let templatePath = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'template.html');
     fs.writeFileSync(templatePath, template);
+    let templatePathJs = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'template.js');
+    fs.writeFileSync(templatePathJs, templateJs);
+    let templatePathCss = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'template.css');
+    fs.writeFileSync(templatePathCss, templateCss);
 });
 
-function makeTemplate(wpfs, filename) {
+function makeTemplateJs(wpfs, filename) {
     let js = wpfs.readFileSync(filename);
+    return js
     let css = Buffer.concat(
         cssFiles.map(c => {
             let file = path.resolve(process.cwd(), c);
             return fs.readFileSync(file);
         })
     );
+    return eval('`' + fs.readFileSync(
+        path.resolve(process.cwd(), templateFile)
+    )+ '`');
+}
+function makeTemplateCss(wpfs, filename) {
+    let css = Buffer.concat(
+        cssFiles.map(c => {
+            let file = path.resolve(process.cwd(), c);
+            return fs.readFileSync(file);
+        })
+    );
+    return css
+}
+function makeTemplate(wpfs, filename) {
     return eval('`' + fs.readFileSync(
         path.resolve(process.cwd(), templateFile)
     )+ '`');

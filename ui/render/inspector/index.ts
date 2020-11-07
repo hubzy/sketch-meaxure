@@ -23,8 +23,9 @@ export function inspector() {
         renderExportable(layerData),
     ];
     let inspector = document.querySelector('#inspector');
+    let inspectorCenter = document.querySelector('#inspectorCenter');
     inspector.classList.add('active');
-    inspector.innerHTML = html.join('');
+    inspectorCenter.innerHTML = html.join('');
 
     // select previously used tab
     let li = inspector.querySelector('[data-codeType=' + state.codeType + ']') as HTMLElement;

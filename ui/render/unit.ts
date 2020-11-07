@@ -62,7 +62,7 @@ export function unit() {
     //         '" checked="checked"><span>' + localize('Custom') + ' (' + state.scale + ', ' + state.unit + ')</span></label></li>';
     //     hasCurrent = localize('Custom') + ' (' + state.scale + ', ' + state.unit + ')';
     // }
-    unitHtml.push('<div class="overlay"></div>', '<h3>' + localize('Unit switch') +
-        '</h3>', '<p>' + hasCurrent + '</p>', '<ul>', unitCurrent, unitList.join(''), '</ul>');
+    unitHtml.push('<h3>' + localize('Unit switch') +
+        '</h3>', '<p>' + hasCurrent + '</p>','<ul>', unitCurrent, unitList.join(''), '</ul>');
     document.querySelector('#unit').innerHTML = unitHtml.join('');
 }
