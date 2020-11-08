@@ -24,9 +24,17 @@ export function unitCss(value) {
     let fontSize = /font-size:/;
     let borderRadius = /border-radius:/;
     let border = /border:/;
+    let width = /width:/;
+    let height = /height:/;
     return value.map(item => {
         if (fontSize.test(item)) {
             return 'font-size: ' + cssName(item);
+        }
+        if (width.test(item)) {
+            return 'width: ' + cssName(item);
+        }
+        if (height.test(item)) {
+            return 'height: ' + cssName(item);
         }
         if (borderRadius.test(item)) {
             return 'border-radius: ' + cssName(item);
