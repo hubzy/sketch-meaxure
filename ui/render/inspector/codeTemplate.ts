@@ -1,4 +1,4 @@
-import { unitSize } from "../helper";
+import { unitSize,unitCss } from "../helper";
 import { LayerData } from "../../../src/meaxure/interfaces";
 import { scaleSize } from "../../events/helper";
 import { propertyType } from "./shared";
@@ -13,7 +13,7 @@ export function renderCodeTemplate(layerData: LayerData): string {
     ].join('');
     var css = [
         '<div id="css-panel" class="code-item item">',
-        '<label><textarea id="css" rows="' + (layerData.css.length + 1) + '" readonly="readonly">' + layerData.css.join("\r\n") + '</textarea></label>',
+        '<label><textarea id="css" rows="' + (layerData.css.length + 1) + '" readonly="readonly">' + unitCss(layerData.css).join("\r\n") + '</textarea></label>',
         '</div>'
     ].join('');
     var android = [];
