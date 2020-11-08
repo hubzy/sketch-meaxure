@@ -20,6 +20,48 @@ export function unitSize(value: number, isText?: boolean) {
     }
     return sz + unit;
 }
+export function unitCss(value) {
+    let fontSize = /font-size:/;
+    let borderRadius = /border-radius:/;
+    let border = /border:/;
+    return value.map(item => {
+        if (fontSize.test(item)) {
+            return 'font-size: ' + cssName(item);
+        }
+        if (borderRadius.test(item)) {
+            return 'border-radius: ' + cssName(item);
+        }
+        if (border.test(item)) {
+            return 'border: ' + unitBorder(item);
+        }
+        return item
+    })
+}
+function cssName(name) {
+    let p = name.replace(/[^0-9]/ig, "");
+    let pt = p / project.resolution;
+    // convert to display value
+    let sz = Math.round(pt * state.scale * 100) / 100;
+    let units = state.unit.split("/");
+    let unit = units[0];
+    return sz + unit
+}
+function unitBorder(e) {
+    let i = e.indexOf(":");
+    let o = e.substr(i + 1, 5);
+    let f = o.replace(/[^0-9]/ig, "");
+    let n
+    if (f == 0) {
+        f = 0.5
+        n = 0
+    } else {
+        n = 'px'
+    }
+    let sz = Math.round(f * state.scale * 100) / 100;
+    let units = state.unit.split("/");
+    let unit = units[0];
+    return sz + unit + e.split(n)[1];
+}
 
 let msgTimeout;
 export function message(msg) {
