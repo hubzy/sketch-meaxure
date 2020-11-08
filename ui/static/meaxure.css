@@ -5,19 +5,19 @@
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
-    background: #202123;
+    background: #20212300;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-    border: 1px solid rgba(255, 255, 255, .16);
-    background-color: rgba(0, 0, 0, .64);
+    border: 1px solid rgba(105, 99, 99, 0.2);
+    background-color: rgba(15, 15, 15, 0.3);
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-corner,
 ::-webkit-resizer {
-    background: #202123;
+    background: #20212300;
 }
 
 html {
