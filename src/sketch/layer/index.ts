@@ -61,6 +61,14 @@ export function extendLayer() {
         get: function () {
             let layerCSSAttributes = this.sketchObject.CSSAttributes();
             let css = [];
+            if (this.sketchObject.absoluteInfluenceRect().size.width) {
+                const widthCss = `width: ${this.sketchObject.absoluteInfluenceRect().size.width};`;
+                css.push(widthCss);
+            }
+            if (this.sketchObject.absoluteInfluenceRect().size.height) {
+                const heightCss = `height: ${this.sketchObject.absoluteInfluenceRect().size.height};`;
+                css.push(heightCss);
+            }
             for (let i = 0; i < layerCSSAttributes.count(); i++) {
                 let attribute = new String(layerCSSAttributes[i]).toString();
                 css.push(attribute);
