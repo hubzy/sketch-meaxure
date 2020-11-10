@@ -47,8 +47,8 @@ export function commandClear(context?) { runAndCatch(clearAllMarks, context); }
 export function commandExport(context?) { runAndCatch(exportSpecification, context); }
 export function commandRenameOldMarkers(context?) { runAndCatch(renameOldMarkers, context); }
 export function commandRunScript(context?) { runAndCatch(runScript, context); }
-export function linkFeedback(context?) { runAndCatch(openURL, context, "https://github.com/qjebbs/sketch-meaxure/issues"); }
-export function linkHome(context?) { runAndCatch(openURL, context, "https://github.com/qjebbs/sketch-meaxure"); }
+export function linkFeedback(context?) { runAndCatch(openURL, context, "https://gitee.com/hubzyy/sketch-meaxure/issues"); }
+export function linkHome(context?) { runAndCatch(openURL, context, "https://gitee.com/hubzyy/sketch-meaxure"); }
 
 function runAndCatch(fn: Function, context, ...args) {
     try {

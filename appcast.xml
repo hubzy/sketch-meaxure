@@ -71,7 +71,7 @@
         Fix: Wrong marker postion, when drawing sizes and overlay for target in groups
         Fix: Cannot select elements behind group, #15
 			</description>
-      <enclosure url="" sparkle:version="3.1.0" type="application/octet-stream"/>
+      <enclosure url="" sparkle:version="3.1.1" type="application/octet-stream"/>
     </item>
   </channel>
 </rss>
