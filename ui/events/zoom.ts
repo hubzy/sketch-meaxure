@@ -17,7 +17,11 @@ export function zoomEvents() {
         }
         event.stopPropagation();
     });
+    document.querySelector('.zoom-text').addEventListener('click', function (event) {
+        zoomRender(1);
+    });
 }
+
 
 export function zoomRender(val: number) {
     state.targetIndex = undefined;

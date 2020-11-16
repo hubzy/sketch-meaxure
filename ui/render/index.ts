@@ -12,7 +12,11 @@ export function render(data: ProjectData) {
     document.querySelector('#app').innerHTML = [
         '<header>',
         '<div class="header-center">',
-        '<div id="zoom" class="zoom-widget"></div>',
+        '<div id="zoom" class="zoom-widget">',
+        '<button class="zoom-in"></button>',
+        '<label class="zoom-text"></label>',
+        '<button class="zoom-out"></button>',
+        '</div>',
         '<div class="flow-mode">',
         `<label for="flow-mode">${localize('FLOW')}</label>`,
         `<div class="slidebox" title="${localize('Keyboard shortcut')}: f">`,
