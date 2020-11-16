@@ -33,15 +33,6 @@ compiler.run((err, stats) => {
 function makeTemplateJs(wpfs, filename) {
     let js = wpfs.readFileSync(filename);
     return js
-    let css = Buffer.concat(
-        cssFiles.map(c => {
-            let file = path.resolve(process.cwd(), c);
-            return fs.readFileSync(file);
-        })
-    );
-    return eval('`' + fs.readFileSync(
-        path.resolve(process.cwd(), templateFile)
-    )+ '`');
 }
 function makeTemplateCss(wpfs, filename) {
     let css = Buffer.concat(
