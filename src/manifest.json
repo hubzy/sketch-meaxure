@@ -3,109 +3,109 @@
   "icon": "icon.png",
   "commands": [
     {
-      "name": "Toolbar",
+      "name": "工具栏",
       "identifier": "commandToolbar",
       "shortcut": "ctrl shift b",
       "handler": "commandToolbar",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Mark Overlay",
+      "name": "标注区域",
       "identifier": "commandOverlays",
       "shortcut": "ctrl shift 1",
       "handler": "commandOverlays",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Mark Sizes",
+      "name": "标注尺寸",
       "identifier": "commandSizes",
       "shortcut": "ctrl shift 2",
       "handler": "commandSizes",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Mark Spacings",
+      "name": "标注间隔",
       "identifier": "commandSpacings",
       "shortcut": "ctrl shift 3",
       "handler": "commandSpacings",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Mark Properties",
+      "name": "标注属性",
       "identifier": "commandProperties",
       "shortcut": "ctrl shift 4",
       "handler": "commandProperties",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Mark Note",
+      "name": "标注备注",
       "identifier": "commandNote",
       "shortcut": "ctrl shift 5",
       "handler": "commandNote",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Mark Coordinate",
+      "name": "标注坐标",
       "identifier": "commandCoordinate",
       "shortcut": "ctrl shift 6",
       "handler": "commandCoordinate",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Spec Export",
+      "name": "导出HTML",
       "identifier": "commandExport",
       "shortcut": "ctrl shift e",
       "handler": "commandExport",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Toggle Hidden",
+      "name": "切换隐藏",
       "identifier": "commandHidden",
       "shortcut": "ctrl shift h",
       "handler": "commandHidden",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Toggle Locked",
+      "name": "切换锁定",
       "identifier": "commandLocked",
       "shortcut": "ctrl shift l",
       "handler": "commandLocked",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Clear Marks",
+      "name": "清除标注",
       "identifier": "commandClear",
       "shortcut": "",
       "handler": "commandClear",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Settings",
+      "name": "设置",
       "identifier": "commandSettings",
       "shortcut": "",
       "handler": "commandSettings",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Rename Old Markers",
+      "name": "重命名旧版标注",
       "identifier": "commandRenameOldMarkers",
       "handler": "commandRenameOldMarkers",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Run Script",
+      "name": "重置",
       "identifier": "commandRunScript",
       "handler": "commandRunScript",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Feedback",
+      "name": "意见反馈",
       "identifier": "linkFeedback",
       "handler": "linkFeedback",
       "script": "mark_bundle.js"
     },
     {
-      "name": "Home",
+      "name": "插件主页",
       "identifier": "linkHome",
       "handler": "linkHome",
       "script": "mark_bundle.js"
@@ -141,7 +141,7 @@
       "-",
       "commandSettings",
       {
-        "title": "Help",
+        "title": "帮助",
         "items": [
           "commandRenameOldMarkers",
           "linkHome",
@@ -150,5 +150,14 @@
       }
     ],
     "title": "Sketch MeaXure"
-  }
+  },
+  "version": "3.3.2",
+  "description": "Make it a fun to create spec for developers and teammates",
+  "homepage": "https://gitee.com/hubzyy/sketch-meaxure",
+  "name": "Sketch MeaXure",
+  "identifier": "Sketch MeaXure",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://gitee.com/hubzyy/sketch-meaxure/raw/master/appcast.xml",
+  "author": "utom & jebbs",
+  "authorEmail": "qjebbs@gmail.com"
 }
