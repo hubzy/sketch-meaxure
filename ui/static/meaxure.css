@@ -41,18 +41,18 @@ body {
 
 header {
     position: fixed;
-    width: 480px;
+    width: 380px;
     bottom: 0px;
     left: 50%;
-    height: 100px;
+    height: 80px;
     display: flex;
     align-items: center;
     z-index: 215;
     transform: translateX(-50%);
 }
 header:hover .header-center{
-    bottom: 3.5vh;
     opacity: 1;
+    bottom: 2.5vh;
 }
 .header-right{
     height: 45px;
@@ -60,18 +60,16 @@ header:hover .header-center{
 }
 
 header .header-center{
-    width: 420px;
-    transition: all 0.35s;
-    opacity: 0.45;
+    transition: all 0.5s;
+    opacity: 0.6;
     position: fixed;
-    bottom: -20px;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    height: 60px;
+    height: 40px;
     background: #0F0F0F;
     border-radius: 12px;
     overflow: hidden;
-
 }
 
 header .header-center {
@@ -81,20 +79,26 @@ header .header-center {
 }
 
 header .header-center .zoom-widget {
-    padding: 20px;
-    width: 160px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
 }
 
-header .header-center h1 {
-    flex: 1;
-}
 
 header .header-center .flow-mode,
 header .header-center .show-notes {
-    padding: 20px;
-    text-align: right;
     line-height: 20px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0 15px;
 }
+
+header .header-center .flow-mode label,
+header .header-center .show-notes label{
+    cursor: pointer;
+}
+
 
 header .header-center .flow-mode .slidebox,
 header .header-center .show-notes .slidebox {
@@ -116,8 +120,9 @@ header .header-left {
     height: 20px;
     border-radius: 10px;
     border: 0;
-    background: #3484F5;
+    background: none;
     cursor: pointer;
+    outline: none;
 }
 
 .zoom-widget button:after,
@@ -129,7 +134,7 @@ header .header-left {
     display: block;
     width: 10px;
     height: 2px;
-    background: #FFF;
+    background: #f5f5f4;
 }
 
 .zoom-widget button:after {
@@ -158,6 +163,9 @@ header .header-left {
     text-align: center;
     line-height: 20px;
     flex: 1;
+    height: 20px;
+    width: 55px;
+    cursor: pointer;
 }
 
 .unit-box {
@@ -758,6 +766,7 @@ main {
     width: 40px;
     height: 20px;
     display: inline-block;
+    transform: scale(0.8);
 }
 
 .slidebox input {
@@ -1306,7 +1315,7 @@ main {
 
 .cursor {
     position: absolute;
-    margin: -8px 0 0 -8px;
+	margin: 0 0 0 -5px;
     top: 50%;
     left: 50%;
     width: 16px;
