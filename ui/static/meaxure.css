@@ -1334,3 +1334,123 @@ main {
 .cursor.moving {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAiCAMAAAAJbCvNAAABMlBMVEUAAAAAAAA2NjYsLCwCAgIAAAAAAAAMDAwBAQECAgIBAQECAgIBAQEBAQEAAAAAAAAAAAA5OTkgICAICAgAAAAcHBwCAgIAAAAAAAAAAAAAAAAAAABDQ0M8PDwxMTE0NDQVFRUCAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPDw8DAwMAAAAAAAAAAAAAAAAAAAAAAAAAAAD///8AAABhYWEcHBz6+vr39/dMTEzs7Oy8vLy4uLhWVlYqKiooKCj09PTw8PC1tbWnp6d2dnZZWVn8/Pzp6enj4+Pd3d3a2trNzc2tra2pqammpqaKioqAgIBzc3NwcHBmZmZdXV1TU1NHR0c+Pj7W1tbR0dHGxsbAwMCampqSkpKPj4+GhoZycnJsbGwkJCTy91wiAAAANnRSTlMAPP7+/ZcN/Pnr487Kv7QlEv7+/fz71jk2GAcE/v7+/fzzpaCUkGZZQTEsIAn826uEg3JtXFGryOxIAAABkElEQVR4AeXS1XLbQBjF8RXIDHbNdiBpOCnDOa4kg2Oww9w2KUPf/xW6s8q2sTXT6X1+t99/NJozK+6lR8ZmRPzDZpxc3sg9y2Sez3aNl+mUsx23TjpzxbJtmnaqMR08ZO8mGuNn4JA8AU75YiXl5ISW5SXwgTwAUGIfcAuM3thpoRnsAJhnC8DcY0gWj3HBmg5qPAdw1nMBfJ9Aai4AQ1aFllzENNcD2jSEsuOkEvyIEB1k44XrEicI6bCigtXoIbzFN5D2PMAbAG4L0im3VVD2AQyOIF3lgeY88MOC9JXBEEkf2rsHwHtLRup749jtikvTQU8Hflkor/hJB00ZdHUwKKwKJRLP70FRh+7ubXDOLRHY4GU4wEE0I7Q1foPyVh4mQeCay1nxx1OeqWC8K6MF4MrCmK/FX/W0PQKCgfr7gLd/ZDvirkiaX3DXRTE381wzHEFp5UvHQPeJmNFImlD8WOJXH35SzFpZGnba7eFPrleK1yMzEQocBtaEWI+R4aC+Va0YRrWm/jm7Uxf/5zeExWvZghlTSgAAAABJRU5ErkJggg==');
 }
+
+
+/* 展开样式 */
+.open{
+	width: 100%;
+	z-index: 99;
+	padding:0;
+	position: fixed;
+	left: 0;
+	top: 0;
+}
+.open .muser{
+	opacity: 0;
+	transition: all 0.35s;
+}
+.open #artboards{
+    position: relative;
+    height: 100%;
+	transition: width 0.35s;
+}
+
+.open #artboards .artboard-list{
+	width: 100%;
+	transition: width 0.35s;
+	position: relative;
+
+}
+.open #artboards .artboard-list li{
+	width: 180px;
+	height:auto;
+	padding: 10px;
+    display: inline-table;
+    cursor: pointer;
+	margin: 15px;
+	position: absolute;
+	flex-wrap: wrap;
+	transition: top 0.35s;
+	transition: left 0.35s;
+}
+.open #artboards .artboard-list li div{
+	padding: 4px 0;
+}
+.open #artboards .artboard-list li .preview-img{
+	width: 100%;
+	height: auto;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	/* opacity: 0; */
+	transition: all 0.35s;
+}
+.open #artboards .artboard-list li .preview-img img{
+	width: inherit;
+	max-width:inherit;
+	max-height: initial;
+    height: auto;
+	vertical-align: middle;
+	background-color: #fff;
+}
+/* 分组列表 */
+.open #artboards .pages-select{
+	display: block;
+	width: 60px;
+	padding: 0;
+	position: fixed;
+	top: 120px;
+	left: 0;
+	z-index: 999;
+	opacity: 0.95;
+	transition: opacity 0.35s;
+	height: auto;
+
+}
+.open #artboards .pages-select .page-list{
+	display: block;
+	position:initial;
+	opacity: 0.3;
+	transition: all 0.35s;
+	transform: translate(-120px, 0);
+	
+}
+.open #artboards .pages-select:hover .page-list{
+	opacity: 0.95;
+	transform: translate(10px, 0);
+	transition: all 0.35s;
+
+}
+@keyframes opacityView {
+	0%{
+		opacity: 0.3;
+		transform: translate(-120px, 0);
+	}
+	25%{
+		transform: translate(10px, 0);
+		opacity: 0.95;
+
+	}
+	50%{
+		opacity: 0.3;
+		transform: translate(-120px, 0);
+	}
+	75%{
+		transform: translate(10px, 0);
+		opacity: 0.95;
+	}
+	100%{
+		opacity: 0.95;
+		transform: translate(-120px, 0);
+	}
+}
+.open #artboards .pages-select h3{
+	opacity: 0;
+}
+.open #artboards .artboard-list{
+	height: calc(100% - 60px);
+}
+.open .artboard-list,.asset-list,.color-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
