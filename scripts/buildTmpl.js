@@ -6,6 +6,7 @@ const webpack = require('webpack');
 let skpmConfig = require('../package.json').skpm;
 
 const templateFile = 'ui/static/template.html'
+const jqueryFiles = 'ui/static/jquery.js'
 const cssFiles = [
     'ui/static/normalize.css',
     'ui/static/meaxure.css'
@@ -20,21 +21,29 @@ compiler.run((err, stats) => {
         throw new Error(stats.toJson().errors);
     }
     let templateJs = makeTemplateJs(outputFileSystem, __dirname + '/index.js');
-    let templateCss = makeTemplateCss(outputFileSystem, __dirname + '/index.js');
-    let template = makeTemplate(outputFileSystem, __dirname + '/index.js');
-    let templatePath = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'template.html');
-    fs.writeFileSync(templatePath, template);
     let templatePathJs = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'template.js');
     fs.writeFileSync(templatePathJs, templateJs);
+
+    let templateCss = makeTemplateCss();
     let templatePathCss = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'template.css');
     fs.writeFileSync(templatePathCss, templateCss);
+
+    let jquery = makeTemplate(jqueryFiles);
+    let templatePathJquery = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'jquery.js');
+    fs.writeFileSync(templatePathJquery, jquery);
+
+    let template = makeTemplate(templateFile);
+    let templatePath = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'template.html');
+    fs.writeFileSync(templatePath, template);
+ 
 });
 
 function makeTemplateJs(wpfs, filename) {
     let js = wpfs.readFileSync(filename);
     return js
 }
-function makeTemplateCss(wpfs, filename) {
+
+function makeTemplateCss() {
     let css = Buffer.concat(
         cssFiles.map(c => {
             let file = path.resolve(process.cwd(), c);
@@ -43,10 +52,10 @@ function makeTemplateCss(wpfs, filename) {
     );
     return css
 }
-function makeTemplate(wpfs, filename) {
-    return eval('`' + fs.readFileSync(
-        path.resolve(process.cwd(), templateFile)
-    )+ '`');
+function makeTemplate(e) {
+    return eval(fs.readFileSync(
+        path.resolve(process.cwd(), e)
+    ));
 }
 
 // //原来的

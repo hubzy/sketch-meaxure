@@ -66,6 +66,7 @@ export async function exportSpecification() {
     }
     let template = NSString.stringWithContentsOfFile_encoding_error(getResourcePath() + "/template.html", 4, nil);
     let templateJs = NSString.stringWithContentsOfFile_encoding_error(getResourcePath() + "/template.js", 4, nil);
+    let templateJq = NSString.stringWithContentsOfFile_encoding_error(getResourcePath() + "/jquery.js", 4, nil);
     let templateCss = NSString.stringWithContentsOfFile_encoding_error(getResourcePath() + "/template.css", 4, nil);
     let data: ExportData = {
         resolution: context.configs.resolution,
@@ -148,13 +149,18 @@ export async function exportSpecification() {
         });
         writeFile({
             content: buildTemplate(templateJs, data),
-            path: savePath,
+            path: savePath + "/src",
             fileName: "index.js"
         });
         writeFile({
             content: buildTemplate(templateCss, data),
-            path: savePath,
+            path: savePath + "/src",
             fileName: "index.css"
+        });
+        writeFile({
+            content: buildTemplate(templateJq, data),
+            path: savePath + "/src",
+            fileName: "jquery.js"
         });
         writeFile({
             content: '<meta http-equiv="refresh" content="0;url=index.html#p">',
@@ -200,7 +206,8 @@ function exportArtboardAdvanced(artboard: Artboard, data: ExportData, savePath: 
 
     exportImage(artboard, {
         format: 'png',
-        scale: 128 / Math.max(data.artboards[i].width, data.artboards[i].height),
+        // scale: 300 / Math.max(data.artboards[i].width, data.artboards[i].height),
+        scale: 0.5
     }, savePath + "/preview/icons", data.artboards[i].slug);
 
     writeFile({
