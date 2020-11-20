@@ -12,6 +12,7 @@ export function render(data: ProjectData) {
     document.querySelector('#app').innerHTML = [
         '<header>',
         '<div class="header-center">',
+        '<div class="muser"></div>',
         '<div id="zoom" class="zoom-widget">',
         '<button class="zoom-in"></button>',
         '<label class="zoom-text"></label>',

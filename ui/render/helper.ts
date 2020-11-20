@@ -50,7 +50,7 @@ export function unitCss(value) {
             return unitBorder(layerData);
         }
         if (boxShadow.test(item)) {
-            return unitBoxShadow(layerData)
+            return unitBoxShadow(layerData , item)
         }
         return item
     })
@@ -81,14 +81,20 @@ function unitBorder(layerData: LayerData): string {
     return borders.join('')
 }
 // Box-Shadow
-function unitBoxShadow(layerData: LayerData): string {
+function unitBoxShadow(layerData: LayerData ,e): string {
+    console.log(layerData)
     let shadows = [];
-    for (let i = layerData.shadows.length - 1; i >= 0; i--) {
-        let shadow = layerData.shadows[i];
-        let type = shadow.type == 'Inner' ? 'inset ' : ''
-        shadows.push('box-shadow: ' + type + unitSize(shadow.offsetX) + ' ' + unitSize(shadow.offsetY) + ' ' + unitSize(shadow.blurRadius) + ' ' + unitSize(shadow.spread) + ' ', shadow.color['css-rgba'] +";");
+    if(layerData.shadows){
+        for (let i = layerData.shadows.length - 1; i >= 0; i--) {
+            let shadow = layerData.shadows[i];
+            let type = shadow.type == 'Inner' ? 'inset ' : ''
+            shadows.push('box-shadow: ' + type + unitSize(shadow.offsetX) + ' ' + unitSize(shadow.offsetY) + ' ' + unitSize(shadow.blurRadius) + ' ' + unitSize(shadow.spread) + ' ', shadow.color['css-rgba'] +";");
+        }
+        return shadows.join('')
+    }else{
+        return  e
     }
-    return shadows.join('')
+
 }
 
 let msgTimeout;
