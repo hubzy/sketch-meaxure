@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background: #181818;">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Spec Export - Sketch MeaXure</title>
     <script src="./src/jquery.js"></script>
-    <link rel="stylesheet" href="./src/index.css">
-    <script src="./src/index.js"></script>
+    <link id='indexCss' rel="stylesheet">
+    <script id='indexJs'></script>
 </head>
 <body id="app">
     <script>
+        if (window.navigator.onLine) {
+            $('#indexCss').attr('href','http://hubzyy.gitee.io/link/J-lakes/css/template.css')
+            $('#indexJs').attr('src','http://hubzyy.gitee.io/link/J-lakes/js/template.js')
+        } else {
+            $('#indexCss').attr('href','./src/index.css')
+            $('#indexJs').attr('src','./src/index.js')
+        } 
         let data = '{{data}}';
-        meaxure.render(data);
+        setTimeout(function(){meaxure.render(data);},180)
     </script>
 </body>
 </html>
