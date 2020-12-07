@@ -82,7 +82,7 @@ function unitBorder(layerData: LayerData): string {
 }
 // Box-Shadow
 function unitBoxShadow(layerData: LayerData ,e): string {
-    console.log(layerData)
+    // console.log(layerData)
     let shadows = [];
     if(layerData.shadows){
         for (let i = layerData.shadows.length - 1; i >= 0; i--) {
