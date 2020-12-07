@@ -1067,7 +1067,7 @@ main {
     height: 100%;
 }
 
-.preview-img img {
+.preview-img > img {
     max-width: 44px;
     max-height: 44px;
     background: #FFF;
@@ -1165,24 +1165,27 @@ main {
 .exportable li {
     position: relative;
     padding: 0 8px;
-    height: 32px;
-    line-height: 32px;
+    height: 50px;
+    line-height: 50px;
     border-bottom: 1px solid #222;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
 .exportable li a {
+    display: flex;
     color: #FFF;
     text-decoration: none;
     outline: 0;
+    align-items: center;
+    overflow: hidden;
 }
 
 .exportable li:last-child {
     border: 0;
 }
 
-.exportable img {
+.exportable .dragExp {
     position: absolute;
     top: 0;
     left: 0;
@@ -1190,6 +1193,15 @@ main {
     height: 100%;
     opacity: 0;
 }
+.exportable .thumbExp {
+
+    width: 32px;
+    opacity: 1;
+    max-height: 32px;
+    margin: 8px;
+    display: inline-block;
+}
+
 
 .asset-list li,
 .color-list li {
@@ -1343,6 +1355,12 @@ main {
     margin-left:15px;
     cursor: pointer;
 }
+.copyAll{
+    width: inherit;
+    padding: 5px 15px 15px;
+    text-align: center;
+    cursor: pointer;
+}
 
 /* 展开样式 */
 .open{
@@ -1388,13 +1406,13 @@ main {
 	/* opacity: 0; */
 	transition: all 0.35s;
 }
-.open #artboards .artboard-list li .preview-img img{
+.open #artboards .artboard-list li .preview-img > img{
 	width: inherit;
 	max-width:inherit;
 	max-height: initial;
     height: auto;
 	vertical-align: middle;
-	background-color: #fff;
+	/* background-color: #fff; */
 }
 /* 分组列表 */
 .open #artboards .pages-select{
