@@ -1,5 +1,6 @@
 /// <reference path="../../node_modules/@types/jquery/index.d.ts"/>
 import { project } from "../common";
+import { message } from "../render/helper";
 
 export function allAtlasMethod() {
     //判断瀑布流状态
@@ -9,7 +10,7 @@ export function allAtlasMethod() {
     //瀑布流
     function atlasMethod() {
         if ($('.navbar').hasClass('open')) {
-            $('header').css('display','none')
+            $('header').css('display', 'none')
             var one = $('.artboard'),                       //one 单张元素 
                 div = $('.section-view');                     //div  容器
             var colCount: number   //定义列数              parseInt() 函数可解析一个字符串，并返回一个整数。
@@ -70,10 +71,9 @@ export function allAtlasMethod() {
             display: '',
             opacity: ''
         });
-        $('header').css('display','');
+        $('header').css('display', '');
         locationActive()
     })
-
 
     //选中光标在可视区域
     function locationActive() {
@@ -91,7 +91,6 @@ export function allAtlasMethod() {
     //瀑布流定时器
     let setInT = setInterval(atlasMethod, 300)
 
-
     //当窗口加载完毕，停止定时器
     $(window).on('load', function () {
         setTimeout(function () {
@@ -106,9 +105,24 @@ export function allAtlasMethod() {
 
     locationActive()
 
-
     function navbarOpen() {
         $('.navbar').addClass('open')
     }
+
+}
+
+export function copyAll() {
+
+    function copy(id) {
+        let center = $(id)
+        center.select();
+        document.execCommand("copy")
+    }
+    $('.inspector').mousedown(function () {
+        $('.copyAll').click(function () {
+            copy('.select #css')
+            message('---✅ - ( ´´ิ∀´ิ` ) - 复制成功 ---');
+        })
+    })
 
 }

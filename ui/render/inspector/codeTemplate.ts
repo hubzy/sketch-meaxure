@@ -1,4 +1,4 @@
-import { unitSize,unitCss } from "../helper";
+import { unitSize, unitCss } from "../helper";
 import { LayerData } from "../../../src/meaxure/interfaces";
 import { scaleSize } from "../../events/helper";
 import { propertyType } from "./shared";
@@ -58,7 +58,8 @@ export function renderCodeTemplate(layerData: LayerData): string {
             getIOSImageSrc(layerData) +
             '</textarea></label>', '</div>');
     }
-    return propertyType('CODE TEMPLATE', [tab, css, android.join(''), ios.join('')].join(''), true);
+    var copyAll = ["<div class='copyAll'>copyAllCode</div>"]
+    return propertyType('CODE TEMPLATE', [tab, css, android.join(''), ios.join(''), copyAll].join(''), true);
 }
 function getAndroidWithHeight(layerData: LayerData) {
     return "android:layout_width=\"" + unitSize(layerData.rect.width, false) + "\"\r\n" + "android:layout_height=\"" + unitSize(layerData.rect.height, false) + "\"\r\n";
