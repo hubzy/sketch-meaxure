@@ -1434,7 +1434,7 @@ main {
 	position:initial;
 	opacity: 0.3;
 	transition: all 0.35s;
-	transform: translate(-120px, 0);
+	transform: translate(-80px, 0);
 	
 }
 .open #artboards .pages-select:hover .page-list{
