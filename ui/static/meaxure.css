@@ -1209,6 +1209,8 @@ main {
     padding: 24px;
     display: flex;
     cursor: pointer;
+    width: 240px;
+    overflow: hidden;
 }
 
 .color-list li {
@@ -1322,7 +1324,7 @@ main {
     border: 1px solid rgba(255, 255, 255, .16);
     color: #FFF;
     box-shadow: 0 2px 10px rgba(0, 0, 0, .32);
-    z-index: 9;
+    z-index: 9999;
     display: none;
 }
 
