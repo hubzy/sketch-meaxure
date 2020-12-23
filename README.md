@@ -26,10 +26,7 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 
 ## 二次改进
 1. 将 `css` `js `文件使用外链的形式引入,方便统一升级，统一管理、当然你可以改为静态资源引入。
-1. 由原来单一的暗色🌛 模式上新增亮色🌞模式可一键切换并记录模式在本地、同时也对css文件进行大量的优化调整。
-1. 新增点击复制功能，在点击元素弹出的详细信息中，可以对css等信息点击复制。
 1. 添加瀑布流展示、方便预览、查找设计稿
-1. 优化键盘操作，用原来的空格拖动调整为`ctrl`+`鼠标移动`、由原来的`ctrl`+`+` / `-`放大缩小调整为`ctrl`+ `鼠标滚轮`。
 1. 导出新增`thumbnail`文件夹，文件夹放置缩略图，便于网络跟快的加载。
 1. 切图素材可点击下载---“本地打开index.html无法直接下载”，部署到线上或者通过IP网络的形式访问可一键下载。
 1. 新增可选择`像素(px)2x、3x`倍数选项切换、设计稿建议为一倍图，默认导出即可。
@@ -42,6 +39,6 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 
 ## 安装
 
-- [下载](https://gitee.com/hubzyy/sketch-meaxure/attach_files/478762/download)该插件的最新版本
+- [下载](https://gitee.com/hubzyy/sketch-meaxure/releases/v3.3.5)该插件的最新版本
 - 解压缩
 - 双击Sketch-Meaxure.sketchplugin
