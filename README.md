@@ -15,7 +15,7 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 ## 改进
 
 用户可以识别的改进：
-1. 完全适用于最新版本的Sketch（v66）。
+1. 完全适用于最新版本的Sketch（v7.0）。
 1. 最新的`色调`功能支持。
 1. 轻松调整标记的大小，而不必担心破坏它们。 （`调整大小限制`功能）。
 1. 在激活`动画堆栈`的情况下直接导出。
@@ -25,12 +25,13 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 [@jebbs](https://github.com/qjebbs/sketch-meaxure)GitHub
 
 ## 二次改进
-1. 将 `css` `js `文件使用外链的形式引入,方便统一升级，统一管理、当然你可以改为静态资源引入。
+1. 将 `css` `js `文件使用以资源的形式引入,方便统一升级，统一管理、当然你可以改为静态资源引入。
 1. 添加瀑布流展示、方便预览、查找设计稿
-1. 导出新增`thumbnail`文件夹，文件夹放置缩略图，便于网络跟快的加载。
+1. 导出新增`icons`文件夹，文件夹放置缩略图，便于网络跟快的加载。
 1. 切图素材可点击下载---“本地打开index.html无法直接下载”，部署到线上或者通过IP网络的形式访问可一键下载。
 1. 新增可选择`像素(px)2x、3x`倍数选项切换、设计稿建议为一倍图，默认导出即可。
-1. 在代码提示中新增width、height代码，对字体信息进行了优化，修复切换倍数时字体倍数不变的bug、圆角边框的还有同样的问题优化中。
+1. 在代码提示中新增width、height代码，对字体信息进行了优化，修复切换倍数时字体倍数不变的bug、圆角边框的优化。
+1. 复制CSS代码功能
 
 
 ## 注意
@@ -39,6 +40,6 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 
 ## 安装
 
-- [下载](https://gitee.com/hubzyy/sketch-meaxure/releases/v3.3.5)该插件的最新版本
+- [下载](https://gitee.com/hubzyy/sketch-meaxure/attach_files/579039/download/sketch-meaxure.sketchplugin.zip)该插件的最新版本
 - 解压缩
 - 双击Sketch-Meaxure.sketchplugin
