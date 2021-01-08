@@ -1472,10 +1472,13 @@ main {
 	opacity: 0;
 }
 .open #artboards .artboard-list{
-	height: calc(100% - 60px);
+	height: 100%;
 }
 .open .artboard-list,.asset-list,.color-list {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+}
+.open .flow-starts ,.open #artboards .flow-starts .artboard-list li{
+    display: none;
 }

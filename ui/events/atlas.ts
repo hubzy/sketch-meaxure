@@ -13,9 +13,9 @@ export function allAtlasMethod() {
             $('header').css('display', 'none')
             var one = $('.artboard'),                       //one 单张元素 
                 div = $('.section-view');                     //div  容器
-            var colCount: number   //定义列数              parseInt() 函数可解析一个字符串，并返回一个整数。
+            var colCount: number;  //定义列数              parseInt() 函数可解析一个字符串，并返回一个整数。
             var colHeightArry = []                                          //定义列高度数组
-            var imgWidth: number = $(one).outerWidth(true)                          //获取单张宽度
+            var imgWidth: number = $(one).outerWidth(true);                          //获取单张宽度
             var imgNub = project.artboards.length                                     //获取图片数量 
             var colCount = parseInt(($(div).width() / imgWidth).toString())            //div宽度 / 单张宽度 = 列数
             var zWidth = parseInt(($(div).width()).toString()) - imgWidth * colCount;    //总宽度 - （单张宽度 X 列数 = 净宽度）=剩余宽度
@@ -97,6 +97,10 @@ export function allAtlasMethod() {
             clearInterval(setInT)
         }, 1000)
     })
+    //强制停止定时器
+    setTimeout(function () {
+        clearInterval(setInT)
+    }, 10000)
     //当窗口大小重置之后，重新执行
     $(window).on('resize', function () {
         atlasMethod()
