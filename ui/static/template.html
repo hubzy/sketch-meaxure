@@ -6,27 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Spec Export - Sketch MeaXure</title>
     <script src="./src/jquery.js"></script>
-    <script>
-        function linkS(js, css) {
-            let time = new Date(),month = time.getMonth(),day = time.getDay();  //获取时间 -月 -天
-            let script = document.createElement("script"),link = document.createElement("link");
-            script.id = 'indexJs'; script.src = js + '?t=' + month + day;
-            document.head.appendChild(script);
-            link.href = css + '?t=' + month + day; link.id = 'indexCss'; link.rel = "stylesheet";
-            document.head.appendChild(link);
-        }
-        linkS("http://hubzyy.gitee.io/link/J-lakes/js/template.js", "http://hubzyy.gitee.io/link/J-lakes/css/template.css")
-        function getImgError() {
-            $('#indexCss,#indexJs,#testImg').remove()
-            linkS("./src/index.js", "./src/index.css")
-        }
-    </script>
+    <script src="./src/index.js"></script>
+    <link rel="stylesheet" href="./src/index.css">
 </head>
 <body id="app">
-    <img id='testImg' src="https://gitee.com/static/images/logo-black.svg" style="display:none;" onerror="getImgError()"/>
     <script>
         let data = '{{data}}';
-        setTimeout(function(){meaxure.render(data);},200)
+       meaxure.render(data);
     </script>
 </body>
 </html>
