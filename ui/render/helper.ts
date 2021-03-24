@@ -35,10 +35,10 @@ export function unitCss(value) {
             return 'font-size: ' + unitCssName(item);
         }
         if (width.test(item)) {
-            return 'width: ' + unitWidthHeight(layerData,'width');
+            return 'width: ' + unitWidthHeight(layerData, 'width');
         }
         if (height.test(item)) {
-            return 'height: ' + unitWidthHeight(layerData,'height');
+            return 'height: ' + unitWidthHeight(layerData, 'height');
         }
         if (lineHeight.test(item)) {
             return 'line-height: ' + unitCssName(item);
@@ -47,10 +47,10 @@ export function unitCss(value) {
             return 'border-radius: ' + unitCssName(item);
         }
         if (border.test(item)) {
-            return unitBorder(layerData);
+            return unitBorder(layerData, item);
         }
         if (boxShadow.test(item)) {
-            return unitBoxShadow(layerData , item)
+            return unitBoxShadow(layerData, item)
         }
         return item
     })
@@ -66,33 +66,37 @@ function unitCssName(name) {
     return sz + unit + ";"
 }
 //unit Width height
-function unitWidthHeight(layerData: LayerData,value): string{
+function unitWidthHeight(layerData: LayerData, value): string {
     let results = value == 'width' ? unitSize(layerData.rect.width) : unitSize(layerData.rect.height);
-    return results +';'
+    return results + ';'
 }
 
 // border
-function unitBorder(layerData: LayerData): string {
+function unitBorder(layerData: LayerData, e): string {
     let borders = [];
-    for (let i = layerData.borders.length - 1; i >= 0; i--) {
-        let border = layerData.borders[i];
-        borders.push('border: ' + unitSize(border.thickness) + ' solid ' + border.color['color-hex'].slice(0,7) +";");
+    if (layerData.borders != undefined) {
+        for (let i = layerData.borders.length - 1; i >= 0; i--) {
+            let border = layerData.borders[i];
+            borders.push('border: ' + unitSize(border.thickness) + ' solid ' + border.color['color-hex'].slice(0, 7) + ";");
+        }
+        return borders.join('')
+    } else {
+        return e
     }
-    return borders.join('')
 }
 // Box-Shadow
-function unitBoxShadow(layerData: LayerData ,e): string {
+function unitBoxShadow(layerData: LayerData, e): string {
     // console.log(layerData)
     let shadows = [];
-    if(layerData.shadows){
+    if (layerData.shadows) {
         for (let i = layerData.shadows.length - 1; i >= 0; i--) {
             let shadow = layerData.shadows[i];
             let type = shadow.type == 'Inner' ? 'inset ' : ''
-            shadows.push('box-shadow: ' + type + unitSize(shadow.offsetX) + ' ' + unitSize(shadow.offsetY) + ' ' + unitSize(shadow.blurRadius) + ' ' + unitSize(shadow.spread) + ' ', shadow.color['css-rgba'] +";");
+            shadows.push('box-shadow: ' + type + unitSize(shadow.offsetX) + ' ' + unitSize(shadow.offsetY) + ' ' + unitSize(shadow.blurRadius) + ' ' + unitSize(shadow.spread) + ' ', shadow.color['css-rgba'] + ";");
         }
         return shadows.join('')
-    }else{
-        return  e
+    } else {
+        return e
     }
 
 }
