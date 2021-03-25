@@ -5,6 +5,9 @@
     <link>https://gitee.com/hubzyy/sketch-meaxure/raw/master/appcast.xml</link>
     <description>Make it a fun to create spec for developers and teammates</description>
     <language>en</language>
+         <item>
+    <enclosure url="https://gitee.com/hubzyy/sketch-meaxure/attach_files/646268/download/sketch-meaxure.sketchplugin.zip" sparkle:version="3.3.53"/>
+    </item>
             <item>
     <enclosure url="https://gitee.com/hubzyy/sketch-meaxure/attach_files/644347/download/sketch-meaxure.sketchplugin.zip" sparkle:version="3.3.52"/>
     </item>
