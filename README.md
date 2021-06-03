@@ -5,7 +5,7 @@
 > 而我在[jebbs](https://github.com/qjebbs) `Sketch MeaXure`的基础上进行优化升级,感谢🙏两位大佬。
 
 Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用Sketch JavaScript API。
-# [Dome](http://hubzyy.gitee.io/sketch-meaxure/)
+# [Demo](http://hubzyy.gitee.io/sketch-meaxure/)
 
 其目标是：
 
@@ -26,7 +26,7 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 [@jebbs](https://github.com/qjebbs/sketch-meaxure)GitHub
 
 ## 二次改进
-1. 预览[Dome](http://hubzyy.gitee.io/sketch-meaxure/)
+1. 预览[Demo](http://hubzyy.gitee.io/sketch-meaxure/)
 1. 将 `css` `js `文件使用以资源的形式引入,方便统一升级，统一管理、当然你可以改为静态资源引入。
 1. 添加瀑布流展示、方便预览、查找设计稿
 1. 导出新增`icons`文件夹，文件夹放置缩略图，便于网络跟快的加载。
