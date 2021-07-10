@@ -20,6 +20,8 @@ compiler.run((err, stats) => {
     if (stats.hasErrors()) {
         throw new Error(stats.toJson().errors);
     }
+    mkdirsSync(path.resolve(skpmConfig.main, 'Contents', 'Resources'))
+    
     let templateJs = makeTemplateJs(outputFileSystem, __dirname + '/index.js');
     let templatePathJs = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'template.js');
     fs.writeFileSync(templatePathJs, templateJs);
@@ -37,6 +39,19 @@ compiler.run((err, stats) => {
     fs.writeFileSync(templatePath, template);
  
 });
+
+// 递归创建目录 同步方法
+function mkdirsSync(dirname) {
+    if (fs.existsSync(dirname)) {
+      return true;
+    } else {
+      if (mkdirsSync(path.dirname(dirname))) {
+        fs.mkdirSync(dirname);
+        return true;
+      }
+    }
+  }
+
 
 function makeTemplateJs(wpfs, filename) {
     let js = wpfs.readFileSync(filename);
