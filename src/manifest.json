@@ -52,6 +52,13 @@
       "script": "mark_bundle.js"
     },
     {
+      "name": "标注切图",
+      "identifier": "commandAddSlice",
+      "shortcut": "ctrl shift 7",
+      "handler": "commandAddSlice",
+      "script": "mark_bundle.js"
+    },
+    {
       "name": "导出HTML",
       "identifier": "commandExport",
       "shortcut": "ctrl shift e",
@@ -132,6 +139,7 @@
       "commandProperties",
       "commandNote",
       "commandCoordinate",
+      "commandAddSlice",
       "-",
       "commandExport",
       "-",

@@ -16,6 +16,7 @@ import { clearAllMarks, toggleHidden, toggleLocked } from '../manage';
 import { exportSpecification } from '../export';
 import { settingsPanel } from './settingsPanel';
 import { markOverlays } from '../overlay';
+import { markAddSlice } from '../addSlice';
 
 interface CommandMessage {
     action: string,
@@ -27,6 +28,7 @@ interface CommandMessage {
 const workers = {
     coordinate: drawCoordinate,
     overlay: markOverlays,
+    addSlice: markAddSlice,
     size: drawSizes,
     spacing: drawSpacings,
     properties: markProperties,
