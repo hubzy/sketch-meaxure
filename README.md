@@ -7,6 +7,9 @@
 Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用Sketch JavaScript API。
 # [Demo](http://hubzyy.gitee.io/sketch-meaxure/)
 
+## NEW
+最新添加切图功能。还在测试阶段，切图和原来的有所差别，慢慢更新完善
+
 其目标是：
 
 1. 更稳定，更新Sketch后不会崩溃。
@@ -33,6 +36,7 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 1. 新增可选择`像素(px)2x、3x`倍数选项切换、设计稿建议为一倍图，默认导出即可。
 1. 在代码提示中新增width、height代码，对字体信息进行了优化，修复切换倍数时字体倍数不变的bug、圆角边框的优化。
 1. 复制CSS代码功能
+1. 新增切图标注
 
 
 ## 注意
