@@ -44,7 +44,7 @@ export function unitCss(value) {
             return 'line-height: ' + unitCssName(item);
         }
         if (borderRadius.test(item)) {
-            return 'border-radius: ' + unitCssName(item);
+            return 'border-radius: ' + unitBorderRadius(item);
         }
         if (border.test(item)) {
             return unitBorder(layerData, item);
@@ -64,6 +64,25 @@ function unitCssName(name) {
     let units = state.unit.split("/");
     let unit = units[0];
     return sz + unit + ";"
+}
+//unit BorderRadius
+function unitBorderRadius(name) {
+    let Radius =[]
+    let e = /[0-9]+/g    //或者 /\d+/g
+    let l = name.match(e)
+    if(l.length==1 ){
+        return unitCssName(name);
+    }else{
+        return unitProperBorderRadius(l)
+    }
+}
+//unit ProperBorderRadius
+export function unitProperBorderRadius(name) {
+    let Radius =[]
+        for (let i = 0; i < name.length; i++) {
+            Radius.push(unitSize(name[i]))
+        }
+        return Radius.join(' ') +';';
 }
 //unit Width height
 function unitWidthHeight(layerData: LayerData, value): string {
