@@ -45,6 +45,6 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 
 ## 安装
 
-- [下载](https://gitee.com/hubzyy/sketch-meaxure/attach_files/768052/download/sketch-meaxure.sketchplugin.zip)该插件的最新版本
+- [下载](https://gitee.com/hubzyy/sketch-meaxure/attach_files/780454/download/sketch-meaxure.sketchplugin.zip)该插件的最新版本
 - 解压缩
 - 双击Sketch-Meaxure.sketchplugin
