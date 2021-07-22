@@ -22,21 +22,29 @@ export function renderProperties(layerData: LayerData): string {
         '</div>'
     ].join('') : '';
 
-    if (layerData.radius.length == 4) {
-        var radius = (layerData.radius) ? [
-            '<div class="item" data-label="' + localize('Radius') + ':">',
-            '<label><input id="radius" type="text" value="' + unitProperBorderRadius(layerData.radius) + '" readonly="readonly"></label>',
-            '</div>'
-        ].join('') : '';
 
-    } else {
-        var radius = (layerData.radius) ? [
-            '<div class="item" data-label="' + localize('Radius') + ':">',
-            '<label><input id="radius" type="text" value="' + unitProperBorderRadius(layerData.radius) + '" readonly="readonly"></label>',
-            '<label></label>',
-            '</div>'
-        ].join('') : '';
-    }
+    // let radius = (layerData.radius) ? [
+    //     '<div class="item" data-label="' + localize('Radius') + ':">',
+    //     '<label><input id="radius" type="text" value="' + unitProperBorderRadius(layerData.radius) + '" readonly="readonly"></label>',
+    //     '</div>'
+    // ].join('') :(layerData.radius) ? [
+    //     '<div class="item" data-label="' + localize('Radius') + ':">',
+    //     '<label><input id="radius" type="text" value="' + unitProperBorderRadius(layerData.radius) + '" readonly="readonly"></label>',
+    //     '<label></label>',
+    //     '</div>'
+    // ].join('') : '';
+
+    let radius = (layerData.radius)?((layerData.radius.length >=2 )?[
+        '<div class="item" data-label="' + localize('Radius') + ':">',
+        '<label><input id="radius" type="text" value="' + unitProperBorderRadius(layerData.radius) + '" readonly="readonly"></label>',
+        '</div>'
+    ].join(''):[
+        '<div class="item" data-label="' + localize('Radius') + ':">',
+        '<label><input id="radius" type="text" value="' + unitProperBorderRadius(layerData.radius) + '" readonly="readonly"></label>',
+        '<label></label>',
+        '</div>'
+    ].join('')):'';
+
     let styleName = (layerData.styleName) ? [
         '<div class="item" data-label="' + localize('Style') + ':">',
         '<label><input id="styleName" type="text" value="' + layerData.styleName + '" readonly="readonly"></label>',

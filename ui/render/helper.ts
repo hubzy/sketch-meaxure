@@ -57,9 +57,8 @@ export function unitCss(value) {
 }
 
 function unitCssName(name) {
-    let p = name.replace(/[^0-9]/ig, "");
+    let p = name.replace(/[^\d.]/g, "");
     let pt = p / project.resolution;
-    // convert to display value
     let sz = Math.round(pt * state.scale * 100) / 100;
     let units = state.unit.split("/");
     let unit = units[0];
@@ -67,9 +66,8 @@ function unitCssName(name) {
 }
 //unit BorderRadius
 function unitBorderRadius(name) {
-    let Radius =[]
-    let e = /[0-9]+/g    //或者 /\d+/g
-    let l = name.match(e)
+    let e = /\d+(.\d+)?/g ;
+    let l = name.match(e);
     if(l.length==1 ){
         return unitCssName(name);
     }else{
