@@ -10,6 +10,9 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 ## NEW
 最新添加切图功能。还在测试阶段，切图和原来的有所差别，慢慢更新完善
 
+## [文件目录](./Directory.md)
+
+
 其目标是：
 
 1. 更稳定，更新Sketch后不会崩溃。
