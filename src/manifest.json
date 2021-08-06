@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/sketch-hq/SketchAPI/develop/docs/sketch-plugin-manifest-schema.json",
-  "icon": "icon.png",
+  "icon": "./panel/assets/img/icon.png",
   "commands": [
     {
       "name": "工具栏",
@@ -166,6 +166,6 @@
   "identifier": "Sketch MeaXure",
   "disableCocoaScriptPreprocessor": true,
   "appcast": "https://gitee.com/hubzyy/sketch-meaxure/raw/master/appcast.xml",
-  "author": "utom & jebbs",
+  "author": "utom & jebbs & hubzyy",
   "authorEmail": "zy.jpeg@gmail.com"
 }
