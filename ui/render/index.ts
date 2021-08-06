@@ -6,7 +6,7 @@ import { unit } from "./unit";
 import { zoom } from "./zoom";
 import { events } from "../events";
 import { navigateByURLHash } from "../events/navigate";
-
+import {allAtlasMethod} from "../render/atlas"
 export function render(data: ProjectData) {
     init(data);
     document.querySelector('#app').innerHTML = [
@@ -84,4 +84,5 @@ export function render(data: ProjectData) {
     colors();
     events();
     navigateByURLHash(false);
+    allAtlasMethod()
 }

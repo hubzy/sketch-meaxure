@@ -13,7 +13,7 @@ import { keyboardZoomEvents } from "./keyboard/zoom";
 import { flowEvents } from "./flow";
 import { hashChangeEvents } from "./hashChange";
 import { keyboardSwitchEvents } from "./keyboard/switch";
-import {allAtlasMethod,copyAll} from "./atlas"
+
 
 export function events() {
     layerEvents();
@@ -31,7 +31,5 @@ export function events() {
     flowEvents();
     keyboardSwitchEvents();
     hashChangeEvents();
-    allAtlasMethod()
-    copyAll()
 }
 

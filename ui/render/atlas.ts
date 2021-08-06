@@ -1,6 +1,5 @@
 /// <reference path="../../node_modules/@types/jquery/index.d.ts"/>
 import { project } from "../common";
-import { message } from "../render/helper";
 
 export function allAtlasMethod() {
     //判断瀑布流状态
@@ -112,21 +111,5 @@ export function allAtlasMethod() {
     function navbarOpen() {
         $('.navbar').addClass('open')
     }
-
-}
-
-export function copyAll() {
-
-    function copy(id) {
-        let center = $(id)
-        center.select();
-        document.execCommand("copy")
-    }
-    $('.inspector').mousedown(function () {
-        $('.copyAll').click(function () {
-            copy('.select #css')
-            message('---✅ - ( ´´ิ∀´ิ` ) - 复制成功 ---');
-        })
-    })
 
 }
