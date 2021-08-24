@@ -7,8 +7,8 @@
 ├── resources #(资源)
 │   ├── i18n(语言)
 │   └── panel(面板)
-│       ├── assets
-│       │   ├── css(资产)
+│       ├── assets(资产)
+│       │   ├── css
 │       │   │   ├── app.css
 │       │   │   └── normalize.css
 │       │   ├── img
