@@ -8,8 +8,8 @@ export function renderExportable(layerData: LayerData): string {
     layerData.exportable.forEach(exportable => {
         var filePath = path + exportable.path;
         expHTML.push('<li>', '<a href="' + filePath 
-        + '"target="_blank" download="' + exportable.path 
-        + '" data-format="' + exportable.format.toUpperCase() 
+        + '"target="_blank" download '
+        + 'data-format="' + exportable.format.toUpperCase() 
         + '"><img class="dragExp" src="' + filePath + '" alt="' + exportable.path 
         + '"><img class="thumbExp" src="' + filePath + '" alt="' + exportable.path 
         + '">'
