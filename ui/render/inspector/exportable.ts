@@ -17,5 +17,8 @@ export function renderExportable(layerData: LayerData): string {
         + '</a>', '</li>');
     });
     expHTML.push('</ul>');
+    if(document.location.protocol == 'file:'){
+        expHTML.push('按(option)或(alt)点击即可下载')
+    }
     return propertyType('EXPORTABLE', expHTML.join(''));
 }
