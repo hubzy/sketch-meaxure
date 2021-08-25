@@ -1,6 +1,6 @@
 import { localize } from "../../common";
 import { LayerData } from "../../../src/meaxure/interfaces";
-import { unitSize, unitProperBorderRadius } from "../helper";
+import { unitSize, unitBorderRadius } from "../helper";
 import { propertyType } from "./shared";
 export function renderProperties(layerData: LayerData): string {
     let position = [
@@ -21,26 +21,13 @@ export function renderProperties(layerData: LayerData): string {
         '<label></label>',
         '</div>'
     ].join('') : '';
-
-
-    // let radius = (layerData.radius) ? [
-    //     '<div class="item" data-label="' + localize('Radius') + ':">',
-    //     '<label><input id="radius" type="text" value="' + unitProperBorderRadius(layerData.radius) + '" readonly="readonly"></label>',
-    //     '</div>'
-    // ].join('') :(layerData.radius) ? [
-    //     '<div class="item" data-label="' + localize('Radius') + ':">',
-    //     '<label><input id="radius" type="text" value="' + unitProperBorderRadius(layerData.radius) + '" readonly="readonly"></label>',
-    //     '<label></label>',
-    //     '</div>'
-    // ].join('') : '';
-
     let radius = (layerData.radius)?((layerData.radius.length >=2 )?[
         '<div class="item" data-label="' + localize('Radius') + ':">',
-        '<label><input id="radius" type="text" value="' + unitProperBorderRadius(layerData.radius) + '" readonly="readonly"></label>',
+        '<label><input id="radius" type="text" value="' + unitBorderRadius(layerData.radius,undefined) + '" readonly="readonly"></label>',
         '</div>'
     ].join(''):[
         '<div class="item" data-label="' + localize('Radius') + ':">',
-        '<label><input id="radius" type="text" value="' + unitProperBorderRadius(layerData.radius) + '" readonly="readonly"></label>',
+        '<label><input id="radius" type="text" value="' + unitBorderRadius(layerData.radius,undefined) + '" readonly="readonly"></label>',
         '<label></label>',
         '</div>'
     ].join('')):'';
