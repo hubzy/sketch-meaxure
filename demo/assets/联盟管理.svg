@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="20px" viewBox="0 0 18 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>联盟管理</title>
+    <defs>
+        <linearGradient x1="37.9481711%" y1="0%" x2="63.0719355%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FF684B" offset="0.0818201014%"></stop>
+            <stop stop-color="#D3391B" offset="100%"></stop>
+        </linearGradient>
+        <path d="M7,16 C6.79152348,16 6.58304696,15.9430967 6.39862543,15.837419 L0.60137457,12.4557348 C0.232531501,12.2362505 0,11.829798 0,11.3989585 L0,4.61120285 C0,4.17223422 0.232531501,3.77391083 0.60137457,3.55442652 L6.39862543,0.164613235 C6.7674685,-0.0548710784 7.2325315,-0.0548710784 7.60137457,0.164613235 L13.3986254,3.55442652 C13.7674685,3.77391083 14,4.18036327 14,4.61120285 L14,11.3908294 C14,11.829798 13.7674685,12.2281214 13.3986254,12.4476057 L7.60137457,15.837419 C7.41695304,15.9512257 7.20847652,16 7,16 Z" id="path-2"></path>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="33.9606208%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="74.7941301%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <path d="M5.6337263,6.07348531 L8.82968817,8.28217564 C8.95602854,8.36894562 9.0143923,8.51164156 8.99699046,8.65130818 C9.0217891,8.58579644 9.06751342,8.52753966 9.1287211,8.48360832 L12.3282137,6.27331261 C12.5121845,6.14701 12.7601452,6.19437348 12.8881249,6.36803957 C13.0161046,6.54959958 12.9681122,6.79431089 12.7921401,6.9206135 L9.59264753,9.1309092 C9.59098638,9.15315877 9.59264753,9.17342824 9.59264753,9.1940823 L9.59264753,13.3451859 C9.59264753,13.5828769 9.37264753,13.7696341 9.09264753,13.7696341 C8.81264753,13.7696341 8.59264753,13.5828769 8.59264753,13.3451859 L8.59264753,9.1940823 C8.59264753,9.12165457 8.61307464,9.05395607 8.64940201,8.99482963 L8.59798094,9 L8.59798094,9 C8.51808189,9 8.43818284,8.97633546 8.3662737,8.92900638 L5.17031183,6.72031605 C4.98654402,6.59410518 4.9465945,6.34957161 5.07443297,6.16814347 C5.20227145,5.98671534 5.44995849,5.94727444 5.6337263,6.07348531 Z" id="path-6"></path>
+        <filter x="-89.8%" y="-63.7%" width="279.6%" height="281.5%" filterUnits="objectBoundingBox" id="filter-7">
+            <feMorphology radius="0.15" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.392156863   0 0 0 0 0.239215686  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="联盟/on" transform="translate(-29.000000, -10.000000)">
+            <g id="联盟管理" transform="translate(29.000000, 10.000000)">
+                <rect id="矩形" fill="#000000" fill-rule="nonzero" opacity="0" x="0" y="0" width="18" height="18"></rect>
+                <g id="椭圆形备份-6-+-椭圆形备份-7-蒙版" transform="translate(2.000000, 1.000000)">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="蒙版" fill="url(#linearGradient-1)" fill-rule="nonzero" xlink:href="#path-2"></use>
+                    <circle id="椭圆形备份-6" fill="url(#linearGradient-4)" opacity="0.200000003" mask="url(#mask-3)" cx="15.5" cy="1.5" r="7.5"></circle>
+                    <circle id="椭圆形备份-7" fill="url(#linearGradient-4)" opacity="0.200000003" mask="url(#mask-3)" cx="-3.5" cy="5.5" r="7.5"></circle>
+                </g>
+                <g id="形状结合" fill-rule="nonzero">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
+                    <use stroke="url(#linearGradient-5)" stroke-width="0.3" fill="url(#linearGradient-5)" xlink:href="#path-6"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

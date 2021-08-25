@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="75px" height="48px" viewBox="0 0 75 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>发现</title>
+    <g id="组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="发现">
+            <rect fill="#FFFFFF" x="0" y="0" width="75" height="48"></rect>
+            <rect id="矩形" fill="#D8D8D8" opacity="0" x="29" y="10" width="18" height="18"></rect>
+            <circle id="椭圆形" stroke="#666666" stroke-width="1.2" cx="38" cy="19" r="7"></circle>
+            <path d="M38.3902439,20 C38.0548781,20 37.7804878,19.55 37.7804878,19 L37.7804878,18 C37.7804878,17.45 38.054878,17 38.3902439,17 C38.7256098,17 39,17.45 39,18 L39,19 C39,19.55 38.7256098,20 38.3902439,20 Z M34.6097561,20 C34.2743902,20 34,19.55 34,19 L34,18 C34,17.45 34.2743902,17 34.6097561,17 C34.9451219,17 35.2195122,17.45 35.2195122,18 L35.2195122,19 C35.2195122,19.55 34.9451219,20 34.6097561,20 Z" id="形状" fill="#666666" fill-rule="nonzero"></path>
+            <text font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" line-spacing="10" fill="#666666">
+                <tspan x="28" y="43">发现</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

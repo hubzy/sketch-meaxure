@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>s_payment</title>
+    <defs>
+        <linearGradient x1="80.3406488%" y1="32.5383209%" x2="50%" y2="58.3677686%" id="linearGradient-1">
+            <stop stop-color="#FFDDD1" offset="0%"></stop>
+            <stop stop-color="#D3391B" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#00A2FF" offset="0%"></stop>
+            <stop stop-color="#1289FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="我的" transform="translate(-38.000000, -327.000000)">
+            <g id="s待付款" transform="translate(38.000000, 327.000000)">
+                <rect id="矩形" fill="#D8D8D8" opacity="0" x="0" y="0" width="28" height="28"></rect>
+                <rect id="矩形" fill="url(#linearGradient-1)" x="6" y="3" width="11" height="4.5" rx="2.25"></rect>
+                <rect id="矩形" fill="url(#linearGradient-2)" x="3" y="6" width="23" height="19" rx="2"></rect>
+                <path d="M26,11 C27.1045695,11 28,11.8954305 28,13 L28,15 C28,16.1045695 27.1045695,17 26,17 L20,17 C18.8954305,17 18,16.1045695 18,15 L18,13 C18,11.8954305 18.8954305,11 20,11 L26,11 Z M21,13 C20.4477153,13 20,13.4477153 20,14 C20,14.5522847 20.4477153,15 21,15 C21.5522847,15 22,14.5522847 22,14 C22,13.4477153 21.5522847,13 21,13 Z" id="形状结合" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

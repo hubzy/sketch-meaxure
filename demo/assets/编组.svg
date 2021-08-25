@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组</title>
+    <defs>
+        <linearGradient x1="34.2588357%" y1="0%" x2="67.0735485%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FF684B" offset="0.0818201014%"></stop>
+            <stop stop-color="#D3391B" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-2" cx="7" cy="7" r="7"></circle>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="33.9606208%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="68.6681799%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.480632649" offset="100%"></stop>
+        </linearGradient>
+        <path d="M9.39024391,10 C9.05487806,10 8.7804878,9.55 8.7804878,9 L8.7804878,8 C8.7804878,7.45 9.05487804,7 9.39024391,7 C9.72560977,7 10,7.45 10,8 L10,9 C10,9.54999997 9.72560976,10 9.39024391,10 Z M5.60975609,10 C5.27439024,10 5,9.55 5,9 L5,8 C5,7.45 5.27439024,7 5.60975609,7 C5.94512194,7 6.21951218,7.45 6.21951218,8 L6.21951218,9 C6.21951218,9.54999997 5.94512194,10 5.60975609,10 Z" id="path-6"></path>
+        <filter x="-140.0%" y="-166.7%" width="380.0%" height="566.7%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.392156863   0 0 0 0 0.239215686  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="发现/on" transform="translate(-29.000000, -10.000000)">
+            <g id="编组" transform="translate(29.000000, 10.000000)">
+                <rect id="矩形" fill="#D8D8D8" opacity="0" x="0" y="0" width="18" height="18"></rect>
+                <g id="椭圆形备份-4-+-椭圆形备份-5-蒙版" transform="translate(2.000000, 2.000000)">
+                    <mask id="mask-3" fill="white">
+                        <use xlink:href="#path-2"></use>
+                    </mask>
+                    <use id="蒙版" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                    <circle id="椭圆形备份-4" fill="url(#linearGradient-4)" opacity="0.200000003" mask="url(#mask-3)" cx="16.5" cy="0.5" r="7.5"></circle>
+                    <circle id="椭圆形备份-5" fill="url(#linearGradient-4)" opacity="0.100000001" mask="url(#mask-3)" cx="-4.5" cy="4.5" r="7.5"></circle>
+                </g>
+                <g id="形状" fill-rule="nonzero">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
+                    <use fill="url(#linearGradient-5)" xlink:href="#path-6"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

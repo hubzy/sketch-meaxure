@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="152px" viewBox="0 0 375 152" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 11</title>
+    <defs>
+        <linearGradient x1="85.1310724%" y1="9.5822347%" x2="5.17569788%" y2="102.888615%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0.174907124" offset="0%"></stop>
+            <stop stop-color="#E6212A" stop-opacity="0.356561407" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="85.1310724%" y1="48.0325205%" x2="5.17569788%" y2="52.5745427%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0.174907124" offset="0%"></stop>
+            <stop stop-color="#E6212A" stop-opacity="0.356561407" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="订单完成" transform="translate(0.000000, -48.000000)">
+            <g id="编组-5" transform="translate(0.000000, 64.000000)">
+                <g id="编组-11" transform="translate(-43.000000, -15.692308)">
+                    <ellipse id="椭圆形" fill="url(#linearGradient-1)" opacity="0.5" cx="50.5" cy="37.7362637" rx="50.5" ry="37.7362637"></ellipse>
+                    <ellipse id="椭圆形备份" fill="url(#linearGradient-1)" opacity="0.200000003" cx="403.5" cy="39.978022" rx="50.5" ry="37.7362637"></ellipse>
+                    <path d="M120.219738,159.032116 C155.412117,144.15688 203.392044,133.949649 264.159519,128.410423 C324.926994,122.871198 383.048705,124.40472 438.524654,133.010989 L402.763709,177.635078 L120.219738,159.032116 Z" id="路径-2" fill="url(#linearGradient-2)" opacity="0.5"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
