@@ -5,10 +5,21 @@
 > 而我在[jebbs](https://github.com/qjebbs) `Sketch MeaXure`的基础上进行优化升级,感谢🙏两位大佬。
 
 Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用Sketch JavaScript API。
-# [Demo](http://hubzyy.gitee.io/sketch-meaxure/)
+## 安装
 
-## NEW
-最新添加切图功能。还在测试阶段，切图和原来的有所差别，慢慢更新完善
+- [进入下载页面](https://gitee.com/hubzyy/sketch-meaxure/releases)
+
+- 下载 `sketch-meaxure.sketchplugin.zip`
+
+- 解压缩
+
+- 双击Sketch-Meaxure.sketchplugin
+
+  
+
+## [Demo](http://hubzyy.gitee.io/sketch-meaxure/)
+
+
 
 ## [文件目录](./Directory.md)
 
@@ -44,11 +55,4 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 
 ## 注意
 
-如果您在管理由Sketch Measure创建的标记（切换隐藏/锁定，删除和导出）时遇到问题，请运行菜单“插件-Sketch MeaXure-帮助-重命名旧标记”。
-
-## 安装
-
-- [进入下载页面](https://gitee.com/hubzyy/sketch-meaxure/releases)
-- 下载 `sketch-meaxure.sketchplugin.zip`
-- 解压缩
-- 双击Sketch-Meaxure.sketchplugin
+如果您在管理由Sketch Measure创建的标记（切换隐藏/锁定，删除和导出）时遇到问题，请运行菜单“插件-Sketch MeaXure-帮助-”。
