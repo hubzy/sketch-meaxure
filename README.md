@@ -3,32 +3,26 @@
 > 感谢[@utom](https://github.com/utom)、[@jebbs](https://github.com/qjebbs)
 > 插件由原来的[@utom](https://github.com/utom)的`Sketch Measure`升级到[jebbs](https://github.com/qjebbs) `Sketch MeaXure`
 > 而我在[jebbs](https://github.com/qjebbs) `Sketch MeaXure`的基础上进行优化升级,感谢🙏两位大佬。
-
 Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用Sketch JavaScript API。
 ## 安装
-
 - [进入下载页面](https://gitee.com/hubzyy/sketch-meaxure/releases)
-
 - 下载 `sketch-meaxure.sketchplugin.zip`
-
 - 解压缩
-
 - 双击Sketch-Meaxure.sketchplugin
-
   
 
-## [Demo](http://hubzyy.gitee.io/sketch-meaxure/)
+[在线预览](http://hubzyy.gitee.io/sketch-meaxure/)
+
+[项目源文件目录](./Directory.md)
 
 
 
-## [文件目录](./Directory.md)
+## 👍推荐相关项目
+[files-preview](https://gitee.com/Jioho/files-preview) 静态文件部署项目(UI界面好看)
+
+[SequenceAnimationMerge](https://gitee.com/hubzyy/sequence-animation-merge) 序列针合成CSS动画交付前端工具
 
 
-其目标是：
-
-1. 更稳定，更新Sketch后不会崩溃。
-1. 易于维护。
-1. 完善用户体验
 
 ## 改进
 
