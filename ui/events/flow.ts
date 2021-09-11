@@ -1,7 +1,7 @@
 import { gotoArtboard, updateURLHash, historyBackUntilAnotherArtboard } from "./navigate";
 import { getEventTarget, removeSelected } from "./helper";
 import { updateScreen } from "../render/screen";
-import { hideNavBar,showNavBar} from "./tab";
+import { hideNavBar,showNavBar } from "./tab";
 import { alignElement, Edge } from "./alignElement";
 
 export var flowMode = undefined;
