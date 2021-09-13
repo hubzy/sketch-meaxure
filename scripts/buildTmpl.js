@@ -6,7 +6,7 @@ const webpack = require('webpack');
 let skpmConfig = require('../package.json').skpm;
 
 const templateFile = 'ui/static/template.html'
-const jqueryFiles = 'ui/static/jquery.js'
+const jqFile = 'resources/panel/assets/js/jquery-2.2.4.min.js'
 const cssFiles = [
     'ui/static/normalize.css',
     'ui/static/meaxure.css'
@@ -20,74 +20,27 @@ compiler.run((err, stats) => {
     if (stats.hasErrors()) {
         throw new Error(stats.toJson().errors);
     }
-    mkdirsSync(path.resolve(skpmConfig.main, 'Contents', 'Resources'))
-    
-    let templateJs = makeTemplateJs(outputFileSystem, __dirname + '/index.js');
-    let templatePathJs = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'template.js');
-    fs.writeFileSync(templatePathJs, templateJs);
-
-    let templateCss = makeTemplateCss();
-    let templatePathCss = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'template.css');
-    fs.writeFileSync(templatePathCss, templateCss);
-
-    let jquery = makeTemplate(jqueryFiles);
-    let templatePathJquery = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'jquery.js');
-    fs.writeFileSync(templatePathJquery, jquery);
-
-    let template = makeTemplate(templateFile);
+    let template = makeTemplate(outputFileSystem, __dirname + '/index.js');
     let templatePath = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'template.html');
     fs.writeFileSync(templatePath, template);
- 
+
 });
 
-// 递归创建目录 同步方法
-function mkdirsSync(dirname) {
-    if (fs.existsSync(dirname)) {
-      return true;
-    } else {
-      if (mkdirsSync(path.dirname(dirname))) {
-        fs.mkdirSync(dirname);
-        return true;
-      }
-    }
-  }
-
-
-function makeTemplateJs(wpfs, filename) {
+function makeTemplate(wpfs, filename) {
     let js = wpfs.readFileSync(filename);
-    return js
-}
 
-function makeTemplateCss() {
     let css = Buffer.concat(
         cssFiles.map(c => {
             let file = path.resolve(process.cwd(), c);
             return fs.readFileSync(file);
         })
-    );
-    return css
-}
-function makeTemplate(e) {
-    return eval(fs.readFileSync(
-        path.resolve(process.cwd(), e)
-    ));
-}
+    ).toString().replace(/[\r\n]/g, "");
+    let jq = fs.readFileSync(jqFile);
 
-// //原来的
-// function makeTemplate(wpfs, filename) {
-//     let js = 'data:text/javascript;base64,' +
-//         wpfs.readFileSync(filename).toString('base64');
-//     let css = 'data:text/css;base64,' + Buffer.concat(
-//         cssFiles.map(c => {
-//             let file = path.resolve(process.cwd(), c);
-//             return fs.readFileSync(file);
-//         })
-//     ).toString('base64');
-//     return eval('`' + fs.readFileSync(
-//         path.resolve(process.cwd(), templateFile)
-//     ).toString() + '`');
-// }
-
+    return eval('`' + fs.readFileSync(
+        path.resolve(process.cwd(), templateFile)
+    ) + '`');
+}
 function getCommonConfig() {
     let debug = !!process.env.DEBUG;
     return {

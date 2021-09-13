@@ -65,9 +65,6 @@ export async function exportSpecification() {
         processingPanel.close();
     }
     let template = NSString.stringWithContentsOfFile_encoding_error(getResourcePath() + "/template.html", 4, nil);
-    let templateJs = NSString.stringWithContentsOfFile_encoding_error(getResourcePath() + "/template.js", 4, nil);
-    let templateJq = NSString.stringWithContentsOfFile_encoding_error(getResourcePath() + "/jquery.js", 4, nil);
-    let templateCss = NSString.stringWithContentsOfFile_encoding_error(getResourcePath() + "/template.css", 4, nil);
     let data: ExportData = {
         resolution: context.configs.resolution,
         unit: context.configs.units,
@@ -146,21 +143,6 @@ export async function exportSpecification() {
             content: buildTemplate(template, data),
             path: savePath,
             fileName: "index.html"
-        });
-        writeFile({
-            content: buildTemplate(templateJs, data),
-            path: savePath + "/src",
-            fileName: "index.js"
-        });
-        writeFile({
-            content: buildTemplate(templateCss, data),
-            path: savePath + "/src",
-            fileName: "index.css"
-        });
-        writeFile({
-            content: buildTemplate(templateJq, data),
-            path: savePath + "/src",
-            fileName: "jquery.js"
         });
         writeFile({
             content: '<meta http-equiv="refresh" content="0;url=index.html#p">',
