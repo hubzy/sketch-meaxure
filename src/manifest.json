@@ -158,14 +158,5 @@
       }
     ],
     "title": "Sketch MeaXure"
-  },
-  "version": "3.4.2",
-  "description": "Make it a fun to create spec for developers and teammates",
-  "homepage": "https://gitee.com/hubzyy/sketch-meaxure",
-  "name": "Sketch MeaXure",
-  "identifier": "Sketch MeaXure",
-  "disableCocoaScriptPreprocessor": true,
-  "appcast": "https://gitee.com/hubzyy/sketch-meaxure/raw/master/appcast.xml",
-  "author": "utom & jebbs & hubzyy",
-  "authorEmail": "zy.jpeg@gmail.com"
+  }
 }
