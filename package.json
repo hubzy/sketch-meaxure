@@ -1,7 +1,7 @@
 {
   "name": "sketch-meaxure",
   "description": "Make it a fun to create spec for developers and teammates",
-  "version": "3.3.53",
+  "version": "3.4.4",
   "engines": {
     "sketch": ">=57.0"
   },
@@ -36,7 +36,7 @@
     "tslint": "^5.20.1",
     "typescript": "^3.7.4"
   },
-  "author": "utom & jebbs <qjebbs@gmail.com>",
+  "author": "utom & jebbs & hubzy <zy.jpeg@gmail.com>",
   "dependencies": {
     "@skpm/path": "^0.1.4"
   }

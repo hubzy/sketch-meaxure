@@ -6,7 +6,10 @@
     <description>Make it a fun to create spec for developers and teammates</description>
     <language>en</language>
      <item>
-    <enclosure url="https://gitee.com/hubzyy/sketch-meaxure/attach_files/812661/download/sketch-meaxure.sketchplugin.zip" sparkle:version="3.4.2"/>
+    <enclosure url="https://gitee.com/hubzyy/sketch-meaxure/attach_files/830246/download/sketch-meaxure.sketchplugin.zip" sparkle:version="3.4.4"/>
+    </item>
+     <item>
+    <enclosure url="https://gitee.com/hubzyy/sketch-eaxure/attach_files/812661/download/sketch-meaxure.sketchplugin.zip" sparkle:version="3.4.2"/>
     </item>
      <item>
     <enclosure url="https://gitee.com/hubzyy/sketch-meaxure/attach_files/780454/download/sketch-meaxure.sketchplugin.zip" sparkle:version="3.4.1"/>
