@@ -7,7 +7,7 @@ let skpmConfig = require('../package.json').skpm;
 
 const templateFile = 'ui/static/template.html'
 const jqFile = 'resources/panel/assets/js/jquery-2.2.4.min.js'
-const jsSrc = 'demo/src/index.js'
+const jsSrc = 'demo/src/index.js'       //同步更新在线js
 const cssFiles = [
     'ui/static/normalize.css',
     'ui/static/meaxure.css'
