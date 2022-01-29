@@ -97,7 +97,7 @@ function unitBorder(layerData: LayerData, e): string {
     if (layerData.borders != undefined) {
         for (let i = layerData.borders.length - 1; i >= 0; i--) {
             let border = layerData.borders[i];
-            borders.push('border: ' + unitSize(border.thickness) + ' solid ' + border.color['color-hex'].slice(0, 7) + ";");
+            borders.push('border: ' + unitSize(border.thickness) + ' solid ' + border.color['css-rgba']+ ";");
         }
         return borders.join('')
     } else {
