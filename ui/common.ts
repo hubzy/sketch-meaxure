@@ -25,10 +25,11 @@ export const state: State = <State>{
 }
 
 export var I18N = {};
-export var lang = navigator.language.toLocaleLowerCase();
+export var langs = navigator.language.toLocaleLowerCase();
 export var timestamp = new Date().getTime();
 
 export function localize(str) {
+  let  lang = langs === 'zh' ? 'zh-cn' : langs;
     return (I18N[lang] && I18N[lang][str]) ? I18N[lang][str] : str;
 }
 
