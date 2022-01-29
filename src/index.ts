@@ -11,7 +11,7 @@ import { exportSpecification } from "./meaxure/export";
 import { markNote } from "./meaxure/note";
 import { markPropertiesAll } from "./meaxure/properties";
 import { markOverlays } from "./meaxure/overlay";
-import { markAddSlice } from "./meaxure/addSlice";
+import { exportable } from "./meaxure/exportable";
 import { drawCoordinate } from "./meaxure/coordinate";
 import { drawSizes } from "./meaxure/size";
 import { drawSpacings } from "./meaxure/spacings";
@@ -25,7 +25,7 @@ export function commandInit(context) { updateContext(context); return false; }
 export function commandSettings(context?) { runAndCatch(settingsPanel, context); }
 export function commandToolbar(context) { runAndCatch(markToolbar, context); }
 export function commandOverlays(context?) { runAndCatch(markOverlays, context); }
-export function commandAddSlice(context?) { runAndCatch(markAddSlice, context); }
+export function commandExportable(context?) { exportable(context),context}
 export function commandSizes(context?) { commandSizeTop(context); commandSizeRight(context); }
 export function commandSizeTop(context?) { runAndCatch(drawSizes, context, EdgeVertical.top); }
 export function commandSizeMiddle(context?) { runAndCatch(drawSizes, context, EdgeVertical.middle); }

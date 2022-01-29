@@ -98,6 +98,8 @@
 	"Current of Sketch": "Sketch 的当前画板",
 	"Filter": " 过滤",
 	"Export": "导出",
+	"Select an export preset": "选择导出预设",
+	"Create Symbol": "创建为组件",
 	"Position": "位置",
 	"Size": "大小",
 	"Family": "字体",

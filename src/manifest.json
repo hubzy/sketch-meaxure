@@ -53,9 +53,9 @@
     },
     {
       "name": "标注切图",
-      "identifier": "commandAddSlice",
-      "shortcut": "ctrl shift 7",
-      "handler": "commandAddSlice",
+      "identifier": "commandExportable",
+      "shortcut": "ctrl shift s",
+      "handler": "commandExportable",
       "script": "mark_bundle.js"
     },
     {
@@ -139,7 +139,7 @@
       "commandProperties",
       "commandNote",
       "commandCoordinate",
-      "commandAddSlice",
+      "commandExportable",
       "-",
       "commandExport",
       "-",

@@ -16,7 +16,7 @@ import { clearAllMarks, toggleHidden, toggleLocked } from '../manage';
 import { exportSpecification } from '../export';
 import { settingsPanel } from './settingsPanel';
 import { markOverlays } from '../overlay';
-import { markAddSlice } from '../addSlice';
+import { markAddSlice } from '../exportable';
 
 interface CommandMessage {
     action: string,
