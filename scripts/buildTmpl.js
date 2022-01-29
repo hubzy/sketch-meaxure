@@ -8,6 +8,7 @@ let skpmConfig = require('../package.json').skpm;
 const templateFile = 'ui/static/template.html'
 const jqFile = 'resources/panel/assets/js/jquery-2.2.4.min.js'
 const jsSrc = 'demo/src/index.js'       //同步更新在线js
+const cssSrc = 'demo/src/index.css'       //同步更新在线css
 const cssFiles = [
     'ui/static/normalize.css',
     'ui/static/meaxure.css'
@@ -26,8 +27,9 @@ compiler.run((err, stats) => {
     let templatePath = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'template.html');
     fs.writeFileSync(templatePath, template);
 
-    let templateJs = makeTemplateJs(outputFileSystem, __dirname + '/index.js');
-    fs.writeFileSync(jsSrc, templateJs + "console.log('"+'onlineJS:'+toDate+"')");
+    let onlineJS = makeTemplateJs(outputFileSystem, __dirname + '/index.js');
+    fs.writeFileSync(jsSrc, onlineJS + "console.log('"+'onlineJS:'+toDate+"')");
+
 });
 function makeTemplateJs(wpfs, filename) {
     return wpfs.readFileSync(filename);
@@ -42,6 +44,7 @@ function makeTemplate(wpfs, filename) {
             return fs.readFileSync(file);
         })
     ).toString().replace(/[\r\n]/g, "");
+    fs.writeFileSync(cssSrc, css + "/* "+'onlineCss:'+toDate+" */");
     let jq = fs.readFileSync(jqFile);
 
     return eval('`' + fs.readFileSync(
