@@ -35,12 +35,12 @@ export function localize(str: string, ...data) {
         return data[idx];
     });
 }
+
 function loadLanguage(code: string): Object | null {
     if (!code) return null;
     if (caches[code] !== undefined) {
         return caches[code];
     }
-
     let langFile = getResourcePath() + "/i18n/" + code + ".json";
     if (!NSFileManager.defaultManager().fileExistsAtPath(langFile)) {
         return null;
@@ -48,6 +48,7 @@ function loadLanguage(code: string): Object | null {
     let language = NSString.stringWithContentsOfFile_encoding_error(langFile, 4, nil) as string;
     return caches[code] = JSON.parse(language);
 }
+
 function getLangCode(): string {
     let sysLanguage = String(NSUserDefaults.standardUserDefaults().objectForKey("AppleLanguages").objectAtIndex(0)).toLowerCase();
     for (let key of Object.keys(aliases)) {
