@@ -137,5 +137,8 @@
 	"Processing layer %@ of %@": "图层处理中... %@ \/ %@",
 	"Advanced mode": "高级模式",
 	"Export layer influence rect": "导出图层的影响尺寸",
-	"Keyboard shortcut": "快捷键"
+	"Keyboard shortcut": "快捷键",
+	"default" : "默认",
+	"Slice with Padding" : "填充内边距",
+	"Enter padding (e.g: 10, or 10;10;10;10)" : "输入填充 (例如: 10, 或者 10;10;10;10)"
 }
