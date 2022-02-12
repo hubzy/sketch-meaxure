@@ -7,6 +7,8 @@ import { createWebviewPanel } from "../../webviewPanel";
 import { getResourcePath } from "../helpers/helper";
 import { getLanguage } from "../common/language";
 import { sketch } from "../../sketch";
+import { getChildrenForExport, LayerPlaceholder } from "../export/layers";
+import { TintInfo } from "../export/tint";
 
 type OptionArtboardOrder = 'artboard-rows' | 'artboard-cols' | 'layer-order' | 'alphabet';
 interface PageInfo {
@@ -28,8 +30,8 @@ interface ArtboardInfo {
 }
 interface ExportData {
     language: Object;
-    selection: any[];
-    current: any[];
+    selection: string[];
+    current: string[];
     currentPageID: string;
     pages: PageInfo[];
     exportOption: boolean;
@@ -47,7 +49,7 @@ interface SubmitData {
 }
 
 interface ExportConfig {
-    selection: { artboard: Artboard, children: Layer[] }[];
+    selection: { artboard: Artboard, children: (Layer | LayerPlaceholder)[] }[];
     layersCount: number;
     advancedMode: boolean;
     byInfluence: boolean;
@@ -75,7 +77,7 @@ export function exportPanel(): Promise<ExportConfig> {
     return new Promise<ExportConfig>((resolve, reject) => {
         panel.onClose(() => resolve(undefined));
         panel.onDidReceiveMessage<SubmitData>('submit', rdata => {
-            let exportArtboards: { artboard: Artboard, children: Layer[] }[] = [];
+            let exportArtboards: { artboard: Artboard, children: (Layer | LayerPlaceholder)[] }[] = [];
             let layersCount = 0;
             for (let page of data.pages) {
                 // don't sort again, already done in sort requests.
@@ -83,8 +85,8 @@ export function exportPanel(): Promise<ExportConfig> {
                 for (let info of page.artboards) {
                     if (rdata.selection[info.objectID]) {
                         let artboard = allArtboards[info.objectID];
-                        let children = artboard.getAllChildren();
-                        layersCount += children.length;
+                        let [children, count] = getChildrenForExport(artboard);
+                        layersCount += count;
                         exportArtboards.push({ artboard: artboard, children: children });
                     }
                 }
@@ -114,10 +116,10 @@ function prepareExportData(): [ExportData, { [key: string]: Artboard }] {
         reverse: false,
     };
 
+    let artboardSet = new Set<string>();
     if (context.selection.length > 0) {
-        let artboardSet = new Set<string>();
         for (let layer of context.selection.layers) {
-            if (layer.type == sketch.Types.Artboard) {
+            if (layer.type == sketch.Types.Artboard || layer.type == sketch.Types.SymbolMaster) {
                 artboardSet.add(layer.id);
                 continue;
             }
@@ -135,7 +137,7 @@ function prepareExportData(): [ExportData, { [key: string]: Artboard }] {
 
     for (let page of context.document.pages) {
         let pageData = <PageInfo>{};
-        let artboards = page.layers.filter(p => p.type == sketch.Types.Artboard) as Artboard[];
+        let artboards = page.layers.filter(p => p.type == sketch.Types.Artboard || artboardSet.has(p.id)) as Artboard[];
         pageData.name = page.name;
         pageData.objectID = page.id;
         pageData.artboards = [];
