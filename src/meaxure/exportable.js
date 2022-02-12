@@ -9,15 +9,14 @@ export function markAddSlice() {
 export function exportable(context) {
 
   const settingText = {
-    title: '填充内边距',
-    helper: '输入填充 (例如: 10, 或者 10;10;10;10)',
+    title: 'Slice with Padding',
+    helper: 'Enter padding (e.g: 10, or 10;10;10;10)',
     defaultValue: 0,
     icon: './panel/assets/img/icon.png'
   }
 
   const Slices = {
     slice: function (layer, option) {
-      console.log(option)
       const name = layer.name();
       const layers = MSLayerArray.arrayWithLayer(layer);
       const group = MSLayerGroup.groupWithLayers(layers);
@@ -29,7 +28,6 @@ export function exportable(context) {
       let layerFrame = layer.frame();
       let padding;
       let temp_padding = option;
-      console.log(typeof option)
       //
       if (typeof option == "number") {
         padding = {
@@ -46,7 +44,6 @@ export function exportable(context) {
           left: 0
         }, temp_padding)
       }
-      console.log(padding)
       sliceFrame.setX(Math.floor(layerFrame.x() - padding.set.left));
       sliceFrame.setY(Math.floor(layerFrame.y() - padding.set.top));
       sliceFrame.setWidth(Math.ceil(layerFrame.width() + padding.set.left + padding.set.right));
@@ -76,11 +73,11 @@ export function exportable(context) {
     },
     setting: function (amount) {
       let alert = COSAlertWindow.new();
-      alert.setMessageText(settingText.title);
+      alert.setMessageText(localize(settingText.title));
       alert.addButtonWithTitle('Slice ' + amount + ' layer(s)');
       alert.addButtonWithTitle(localize("Cancel"));
 
-      alert.addTextLabelWithValue(settingText.helper);
+      alert.addTextLabelWithValue(localize(settingText.helper));
       alert.addTextFieldWithValue(settingText.defaultValue);
 
       alert.setIcon(NSImage.alloc().initByReferencingFile(context.plugin.urlForResourceNamed(settingText.icon).path()));
@@ -91,6 +88,7 @@ export function exportable(context) {
       // Symbol button
       let button = NSButton.alloc().initWithFrame(NSMakeRect(0, 0, 200.0, 25.0));
       button.setButtonType(NSSwitchButton);
+
       button.setTitle(localize("Create Symbol"));
       alert.addAccessoryView(button)
 
@@ -158,9 +156,8 @@ export function exportable(context) {
       let values = [];
       let presets = MSExportPreset.allExportPresets();
       for (var i = 0; i < presets.length; i++) {
-        values.push(presets[i].name());
+        values.push(presets[i].name() == '##DEFAULT##' ? (localize("default")): presets[i].name());
       }
-
       let dropdown = NSPopUpButton.alloc().initWithFrame(NSMakeRect(0, 0, 200, 28));
       dropdown.addItemsWithTitles(values);
 
