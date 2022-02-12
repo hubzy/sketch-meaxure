@@ -1,28 +1,37 @@
 
 import sketch from 'sketch'
 import { localize } from "./common/language";
+
+export function markAddSlice() {
+  sketch.UI.message(localize("请使用快捷键control shift s 💖"))
+}
+
 export function exportable(context) {
-  console.log(context)
+
   const settingText = {
     title: '填充内边距',
     helper: '输入填充 (例如: 10, 或者 10;10;10;10)',
     defaultValue: 0,
     icon: './panel/assets/img/icon.png'
   }
+
   const Slices = {
     slice: function (layer, option) {
+      console.log(option)
       const name = layer.name();
       const layers = MSLayerArray.arrayWithLayer(layer);
       const group = MSLayerGroup.groupWithLayers(layers);
       group.setName(name);
       const slice = MSSliceLayer.sliceLayerFromLayer(layer);
       slice.setName(name)
+
       let sliceFrame = slice.frame();
       let layerFrame = layer.frame();
       let padding;
-      let temp_padding = option.padding;
+      let temp_padding = option;
+      console.log(typeof option)
       //
-      if (typeof option.padding == "number") {
+      if (typeof option == "number") {
         padding = {
           top: temp_padding,
           right: temp_padding,
@@ -37,10 +46,11 @@ export function exportable(context) {
           left: 0
         }, temp_padding)
       }
-      sliceFrame.setX(Math.floor(layerFrame.x() - padding.left));
-      sliceFrame.setY(Math.floor(layerFrame.y() - padding.top));
-      sliceFrame.setWidth(Math.ceil(layerFrame.width() + padding.left + padding.right));
-      sliceFrame.setHeight(Math.ceil(layerFrame.height() + padding.top + padding.bottom));
+      console.log(padding)
+      sliceFrame.setX(Math.floor(layerFrame.x() - padding.set.left));
+      sliceFrame.setY(Math.floor(layerFrame.y() - padding.set.top));
+      sliceFrame.setWidth(Math.ceil(layerFrame.width() + padding.set.left + padding.set.right));
+      sliceFrame.setHeight(Math.ceil(layerFrame.height() + padding.set.top + padding.set.bottom));
 
       //set slice to only do content
       slice.exportOptions().setLayerOptions(2);
@@ -133,6 +143,7 @@ export function exportable(context) {
         } else {
           symbol = false;
         }
+
         return {
           set,
           preset,
@@ -149,8 +160,10 @@ export function exportable(context) {
       for (var i = 0; i < presets.length; i++) {
         values.push(presets[i].name());
       }
+
       let dropdown = NSPopUpButton.alloc().initWithFrame(NSMakeRect(0, 0, 200, 28));
       dropdown.addItemsWithTitles(values);
+
       return dropdown
     }
   }
@@ -168,10 +181,5 @@ export function exportable(context) {
     })
     doc.showMessage('sliced ' + selected.length + ' layer(s).');
   }
-}
 
-
-
-export function markAddSlice() {
-  sketch.UI.message(localize("请使用快捷键control shift s 💖"))
 }
