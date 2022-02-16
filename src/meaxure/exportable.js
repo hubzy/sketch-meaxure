@@ -1,14 +1,20 @@
 
 import sketch from 'sketch'
 import { localize } from "./common/language";
+
+export function markAddSlice() {
+  sketch.UI.message(localize("请使用快捷键control shift s 💖"))
+}
+
 export function exportable(context) {
-  console.log(context)
+
   const settingText = {
-    title: '填充内边距',
-    helper: '输入填充 (例如: 10, 或者 10;10;10;10)',
+    title: 'Slice with Padding',
+    helper: 'Enter padding (e.g: 10, or 10;10;10;10)',
     defaultValue: 0,
     icon: './panel/assets/img/icon.png'
   }
+
   const Slices = {
     slice: function (layer, option) {
       const name = layer.name();
@@ -17,12 +23,13 @@ export function exportable(context) {
       group.setName(name);
       const slice = MSSliceLayer.sliceLayerFromLayer(layer);
       slice.setName(name)
+
       let sliceFrame = slice.frame();
       let layerFrame = layer.frame();
       let padding;
-      let temp_padding = option.padding;
+      let temp_padding = option;
       //
-      if (typeof option.padding == "number") {
+      if (typeof option == "number") {
         padding = {
           top: temp_padding,
           right: temp_padding,
@@ -37,10 +44,10 @@ export function exportable(context) {
           left: 0
         }, temp_padding)
       }
-      sliceFrame.setX(Math.floor(layerFrame.x() - padding.left));
-      sliceFrame.setY(Math.floor(layerFrame.y() - padding.top));
-      sliceFrame.setWidth(Math.ceil(layerFrame.width() + padding.left + padding.right));
-      sliceFrame.setHeight(Math.ceil(layerFrame.height() + padding.top + padding.bottom));
+      sliceFrame.setX(Math.floor(layerFrame.x() - padding.set.left));
+      sliceFrame.setY(Math.floor(layerFrame.y() - padding.set.top));
+      sliceFrame.setWidth(Math.ceil(layerFrame.width() + padding.set.left + padding.set.right));
+      sliceFrame.setHeight(Math.ceil(layerFrame.height() + padding.set.top + padding.set.bottom));
 
       //set slice to only do content
       slice.exportOptions().setLayerOptions(2);
@@ -66,11 +73,11 @@ export function exportable(context) {
     },
     setting: function (amount) {
       let alert = COSAlertWindow.new();
-      alert.setMessageText(settingText.title);
+      alert.setMessageText(localize(settingText.title));
       alert.addButtonWithTitle('Slice ' + amount + ' layer(s)');
       alert.addButtonWithTitle(localize("Cancel"));
 
-      alert.addTextLabelWithValue(settingText.helper);
+      alert.addTextLabelWithValue(localize(settingText.helper));
       alert.addTextFieldWithValue(settingText.defaultValue);
 
       alert.setIcon(NSImage.alloc().initByReferencingFile(context.plugin.urlForResourceNamed(settingText.icon).path()));
@@ -81,6 +88,7 @@ export function exportable(context) {
       // Symbol button
       let button = NSButton.alloc().initWithFrame(NSMakeRect(0, 0, 200.0, 25.0));
       button.setButtonType(NSSwitchButton);
+
       button.setTitle(localize("Create Symbol"));
       alert.addAccessoryView(button)
 
@@ -133,6 +141,7 @@ export function exportable(context) {
         } else {
           symbol = false;
         }
+
         return {
           set,
           preset,
@@ -147,10 +156,11 @@ export function exportable(context) {
       let values = [];
       let presets = MSExportPreset.allExportPresets();
       for (var i = 0; i < presets.length; i++) {
-        values.push(presets[i].name());
+        values.push(presets[i].name() == '##DEFAULT##' ? (localize("default")) : presets[i].name());
       }
       let dropdown = NSPopUpButton.alloc().initWithFrame(NSMakeRect(0, 0, 200, 28));
       dropdown.addItemsWithTitles(values);
+
       return dropdown
     }
   }
@@ -168,10 +178,5 @@ export function exportable(context) {
     })
     doc.showMessage('sliced ' + selected.length + ' layer(s).');
   }
-}
 
-
-
-export function markAddSlice() {
-  sketch.UI.message(localize("请使用快捷键control shift s 💖"))
 }
