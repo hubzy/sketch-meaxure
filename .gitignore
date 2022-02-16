@@ -2,7 +2,7 @@
 Sketch-Meaxure.sketchplugin
 sketch-meaxure.sketchplugin.zip
 # npm
-node_modules
+# node_modules  依赖包更新了先用旧的吧
 .npm
 npm-debug.log
 
