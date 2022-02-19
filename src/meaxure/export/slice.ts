@@ -19,10 +19,12 @@ export function getCollectedSlices(): any[] {
     return slices;
 }
 export function getSlice(layer: Layer, layerData: LayerData, symbolLayer: Layer) {
+    let sliceLayer: Layer;
     let sliceID = layer.id;
     let sliceName = layer.name;
     let formats: ExportFormat[];
     if (layer.exportFormats.length > 0) {
+        sliceLayer = symbolLayer || layer;
         formats = layer.exportFormats;
         if (symbolLayer) {
             sliceID = symbolLayer.id;
@@ -33,6 +35,7 @@ export function getSlice(layer: Layer, layerData: LayerData, symbolLayer: Layer)
         // symbol instance of none, #4
         if (!layerMaster) return;
         if (!layerMaster.exportFormats.length) return;
+        sliceLayer = layerMaster;
         formats = layerMaster.exportFormats;
         sliceID = layerMaster.id
         sliceName = layerMaster.name
@@ -43,7 +46,7 @@ export function getSlice(layer: Layer, layerData: LayerData, symbolLayer: Layer)
     if (!sliceCache[sliceID]) {
         NSFileManager.defaultManager()
             .createDirectoryAtPath_withIntermediateDirectories_attributes_error(assetsPath, true, nil, nil);
-        sliceCache[sliceID] = layerData.exportable = getExportable(layer,formats);
+        sliceCache[sliceID] = layerData.exportable = getExportable(sliceLayer);
         slices.push({
             name: sliceName,
             objectID: sliceID,
@@ -54,9 +57,10 @@ export function getSlice(layer: Layer, layerData: LayerData, symbolLayer: Layer)
         layerData.exportable = sliceCache[sliceID];
     }
 }
-function getExportable(layer: Layer, formats: ExportFormat[]): SMExportable[] {
+function getExportable(layer: Layer): SMExportable[] {
     let exportable = [];
-    let exportFormats = formats.map(s => parseExportFormat(s, layer));
+    let sizes = layer.exportFormats;
+    let exportFormats = sizes.map(s => parseExportFormat(s, layer));
     for (let exportFormat of exportFormats) {
         let prefix = exportFormat.prefix || "",
             suffix = exportFormat.suffix || "";
