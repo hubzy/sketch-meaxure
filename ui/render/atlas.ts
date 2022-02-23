@@ -51,7 +51,6 @@ export function allAtlasMethod() {
     //展开瀑布流
     $('.muser').click(function () {
         $('.navbar').addClass('open')
-        atlasMethod()
         sessionStorage.setItem("navbar", "open");
         let muserT = setInterval(atlasMethod, 100)
         setTimeout(function () {
@@ -74,19 +73,7 @@ export function allAtlasMethod() {
         locationActive()
     })
 
-    //选中光标在可视区域
-    function locationActive() {
-        setTimeout(function () {
-            let Atop = $('.artboard-list > .active').offset().top
-            let artb = $(".section-view")
-            if (0 < Atop && Atop < artb.height()) {
-            } else {
-                let p = Atop - artb.height() / 2;
-                artb.scrollTop(p + artb.scrollTop())
-            }
-        }, 600)
 
-    }
     //瀑布流定时器
     let setInT = setInterval(atlasMethod, 300)
 
@@ -112,4 +99,24 @@ export function allAtlasMethod() {
         $('.navbar').addClass('open')
     }
 
+    //点击列表重新布局
+    $('.page-list > li > label').click(()=>{
+        let muserT = setInterval(atlasMethod, 100)
+        setTimeout(function () {
+            clearInterval(muserT)
+        }, 1000)
+    })
+    //选中光标在可视区域
+    function locationActive() {
+        setTimeout(function () {
+            let Atop = $('.artboard-list > .active').offset().top
+            let artb = $(".section-view")
+            if (0 < Atop && Atop < artb.height()) {
+            } else {
+                let p = Atop - artb.height() / 2;
+                artb.scrollTop(p + artb.scrollTop())
+            }
+        }, 600)
+
+    }
 }
