@@ -15,18 +15,18 @@ import { getLayerData } from "./layerData";
 import { clearSliceCache, getCollectedSlices } from "./slice";
 import { clearMaskStack } from "./mask";
 import { getDocumentColors } from "./colors";
-import { clearTintStack } from "./tint";
-import { renameIfIsMarker } from "../helpers/renameOldMarkers";
+import { clearTintStack, TintInfo } from "./tint";
 import { tempLayers } from "./tempLayers";
+import { LayerPlaceholder } from "./layers";
 
 export let savePath: string;
 export let assetsPath: string;
 export let stopwatch = newStopwatch();
 
-let exporting = false;
 export async function exportSpecification() {
-    if (exporting) {
-        sketch.UI.message('Please wait for former task to exit.');
+    const RUNNING_FLAG_KEY = "co.jebbs.sketch-meaxure.exporting"
+    if (sketch.Settings.sessionVariable<boolean>(RUNNING_FLAG_KEY)) {
+        sketch.UI.message(localize('Please wait for former task to exit'));
         return;
     }
     let results = await exportPanel();
@@ -43,7 +43,7 @@ export async function exportSpecification() {
     if (!savePath) return;
     assetsPath = savePath + "/assets";
 
-    exporting = true;
+    sketch.Settings.setSessionVariable<boolean>(RUNNING_FLAG_KEY, true);
     stopwatch.restart();
     clearMaskStack();
     // stopwatch.tik('clearMaskStack');
@@ -61,7 +61,7 @@ export async function exportSpecification() {
     // stopwatch.tik('processingPanel');
     let onFinishCleanup = function () {
         tempLayers.removeAll();
-        exporting = false;
+        sketch.Settings.setSessionVariable<boolean>(RUNNING_FLAG_KEY, false);
         processingPanel.close();
     }
     let template = NSString.stringWithContentsOfFile_encoding_error(getResourcePath() + "/template.html", 4, nil);
@@ -100,11 +100,9 @@ export async function exportSpecification() {
             layerIndex++;
             if (cancelled) {
                 onFinishCleanup();
-                sketch.UI.message('Cancelled by user.');
+                sketch.UI.message(localize('Cancelled by user'));
                 return;
             }
-            // compatible with meaxure markers
-            renameIfIsMarker(layer);
             // stopwatch.tik('renameIfIsMarker');
             let taskError: Error;
             // stopwatch.tik('before promise');
@@ -112,10 +110,14 @@ export async function exportSpecification() {
                 .catch(err => taskError = err);
             if (taskError) {
                 onFinishCleanup();
-                // select the error layer
-                document.selectedLayers.layers = [layer];
-                let msg = `Error processing layer ${layer.name}.`;
-                logger.error(msg, taskError);
+                if (!(layer instanceof LayerPlaceholder)) {
+                    // select the error layer
+                    document.selectedLayers.layers = [layer];
+                    let msg = `Error processing layer ${layer.name}.`;
+                    logger.error(msg, taskError);
+                } else {
+                    logger.error(taskError);
+                }
                 return;
             }
             // stopwatch.tik('after promise');
@@ -159,7 +161,7 @@ export async function exportSpecification() {
     // sketch.UI.alert('statistics', Object.keys(statistics).map(key => `${key}: ${statistics[key] / 1000}s`).join('\n'))
 }
 
-function getLayerTask(artboard: Artboard, layer: Layer, data: ArtboardData, byInfluence: boolean, symbolLayer?: Layer): Promise<boolean> {
+function getLayerTask(artboard: Artboard, layer: Layer | LayerPlaceholder, data: ArtboardData, byInfluence: boolean, symbolLayer?: Layer): Promise<boolean> {
     return new Promise<true>((resolve, reject) => {
         try {
             getLayerData(artboard, layer, data, byInfluence, symbolLayer)
@@ -185,7 +187,7 @@ function exportArtboardAdvanced(artboard: Artboard, data: ExportData, savePath: 
             prefix: "",
             suffix: "",
         },
-       savePath + "/preview", data.artboards[i].slug
+        savePath + "/preview", data.artboards[i].slug
     );
 
     exportImage(artboard, {
@@ -194,7 +196,6 @@ function exportArtboardAdvanced(artboard: Artboard, data: ExportData, savePath: 
         scale: 0.5,
         prefix: "",
         suffix: "",
-
     }, savePath + "/preview/icons", data.artboards[i].slug);
 
     writeFile({

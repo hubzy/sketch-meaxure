@@ -16,7 +16,6 @@ declare module 'sketch/sketch' {
             CSSAttributes: string[];
             resizingConstraint: number;
             getAllChildren(): Layer[];
-            getLastChildren(): Layer;
             alignTo(
                 target: Layer | Rectangle,
                 horizontal?: { from: Edge, to: Edge } | boolean,
@@ -61,14 +60,6 @@ export function extendLayer() {
         get: function () {
             let layerCSSAttributes = this.sketchObject.CSSAttributes();
             let css = [];
-            if (this.sketchObject.absoluteInfluenceRect().size.width) {
-                const widthCss = `width: ${this.sketchObject.absoluteInfluenceRect().size.width};`;
-                css.push(widthCss);
-            }
-            if (this.sketchObject.absoluteInfluenceRect().size.height) {
-                const heightCss = `height: ${this.sketchObject.absoluteInfluenceRect().size.height};`;
-                css.push(heightCss);
-            }
             for (let i = 0; i < layerCSSAttributes.count(); i++) {
                 let attribute = new String(layerCSSAttributes[i]).toString();
                 css.push(attribute);
@@ -92,15 +83,12 @@ export function extendLayer() {
         let layers: Layer[] = [];
         enumLayers(this);
         function enumLayers(layer: Layer) {
-            layers.push(layer)
             if (layer.layers) {
                 layer.layers.forEach(l => enumLayers(l));
             }
+            layers.push(layer)
         }
         return layers;
-    }
-    target.getLastChildren = function (): Layer {
-        return sketch.fromNative((this as Layer).sketchObject.children().lastObject()) as Layer;
     }
     target.alignTo = function (
         target: Layer | Rectangle,

@@ -6,32 +6,54 @@ import { ArtboardData, LayerData, SMType, LayerStates } from "../interfaces";
 import { sketch } from "../../sketch";
 import { toHTMLEncode, emojiToEntities } from "../helpers/helper";
 import { getTextFragment } from "./textFragment";
-import { updateMaskStackBeforeLayer, applyMasks, updateMaskStackAfterLayer } from "./mask";
+import { applyMasks, updateMaskStackBeforeLayer } from "./mask";
 import { getLayerRadius, getBordersFromStyle, getFillsFromStyle, getShadowsFromStyle, parseColor } from "../helpers/styles";
 import { SMRect } from "../interfaces";
 import { getSlice } from "./slice";
 import { makeNote } from "./note";
 import { getSymbol } from "./symbol";
-import { updateTintStackAfterLayer, applyTint } from "./tint";
+import { applyTint, pushTintStack, TintInfo, updateTintStackBeforeLayer } from "./tint";
 import { stopwatch } from ".";
 import { getFlow } from "./flow";
 import { tempLayers } from "./tempLayers";
+import { renameIfIsMarker } from "../helpers/renameOldMarkers";
+import { LayerPlaceholder, LayerPlaceholderType } from "./layers";
 
-export function getLayerData(artboard: Artboard, layer: Layer, data: ArtboardData, byInfluence: boolean, symbolLayer?: Layer): Promise<boolean> {
+export function getLayerData(artboard: Artboard, layer: Layer | LayerPlaceholder, data: ArtboardData, byInfluence: boolean, symbolLayer?: Layer) {
+    if (layer instanceof LayerPlaceholder) {
+        dealWithPlaceholder(layer);
+        return;
+    }
+    // compatible with meaxure markers
+    renameIfIsMarker(layer);
     // stopwatch.tik('before updateMaskStackBeforeLayer');
-    updateMaskStackBeforeLayer(layer, artboard);
+    updateMaskStackBeforeLayer(layer);
+    updateTintStackBeforeLayer(layer);
+    getLayerData2(artboard, layer, data, byInfluence, symbolLayer)
+    // stopwatch.tik('update stack');
+}
+
+function dealWithPlaceholder(p: LayerPlaceholder) {
+    switch (p.getType()) {
+        case LayerPlaceholderType.Tint:
+            pushTintStack(p.getValue<TintInfo>());
+            break;
+        default:
+            throw ("unknown LayerPlaceholder type: " + p.getType())
+    }
+}
+
+function getLayerData2(artboard: Artboard, layer: Layer, data: ArtboardData, byInfluence: boolean, symbolLayer?: Layer) {
     // stopwatch.tik('updateMaskStackBeforeLayer');
     let layerRect = getSMRect(layer, artboard, byInfluence);
     layerRect = applyMasks(layer, layerRect, artboard);
     if (!layerRect) {
-        onLayerEnd(layer);
         return;
     }
     // stopwatch.tik('applyMasks');
     let note = makeNote(layer, artboard, symbolLayer);
     if (note) {
         data.notes.push(note);
-        onLayerEnd(layer);
         return;
     }
     // stopwatch.tik('make notes');
@@ -44,7 +66,6 @@ export function getLayerData(artboard: Artboard, layer: Layer, data: ArtboardDat
         layerStates.isInSlice ||
         layerStates.isMeaXure ||
         layerStates.isInShapeGroup) {
-        onLayerEnd(layer);
         return;
     }
 
@@ -61,7 +82,6 @@ export function getLayerData(artboard: Artboard, layer: Layer, data: ArtboardDat
     getFlow(layer, layerData);
     // stopwatch.tik('getFlow');
     if (layerType == SMType.hotspot) {
-        onLayerEnd(layer);
         return;
     }
     // stopwatch.tik('prepare layer data');
@@ -71,21 +91,13 @@ export function getLayerData(artboard: Artboard, layer: Layer, data: ArtboardDat
     // stopwatch.tik('applyTint');
     getSlice(layer, layerData, symbolLayer);
     // stopwatch.tik('getSlice');
-    // getFlow(layer, layerData);
-    // stopwatch.tik('getFlow');
-    // data.layers.push(layerData);
     if (layerData.type == SMType.symbol) {
         getSymbol(artboard, layer as SymbolInstance, layerData, data, byInfluence);
     }
     getTextFragment(artboard, layer as Text, data);
     // stopwatch.tik('getTextFragment');
-    onLayerEnd(layer);
 }
-function onLayerEnd(layer: Layer) {
-    updateMaskStackAfterLayer(layer);
-    updateTintStackAfterLayer(layer);
-    // stopwatch.tik('update stack');
-}
+
 function getSMType(layer: Layer): SMType {
     if (layer.exportFormats.length > 0) return SMType.slice;
     let master = (layer as SymbolInstance).master;
@@ -147,7 +159,7 @@ function isExportable(layer: Layer) {
         layer.type == sketch.Types.ShapePath ||
         layer.type == sketch.Types.Image ||
         layer.type == sketch.Types.Slice ||
-        layer.type == sketch.Types.SymbolInstance||
+        layer.type == sketch.Types.SymbolInstance ||
         layer.type == sketch.Types.HotSpot
 }
 function getLayerStates(layer: Layer): LayerStates {

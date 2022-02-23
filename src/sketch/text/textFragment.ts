@@ -51,7 +51,6 @@ export function getFragments(layer: Layer): TextFragment[] {
         let textColor = (fragment.MSAttributedStringColorAttribute && fragment.MSAttributedStringColorAttribute.value) ?
             parseColor(fragment.MSAttributedStringColorAttribute.value) :
             '#000000FF';
-
         results.push(<TextFragment>{
             location: fragment.location,
             length: fragment.length,
@@ -60,7 +59,7 @@ export function getFragments(layer: Layer): TextFragment[] {
                 textColor: textColor,
                 fontSize: fontSize,
                 fontFamily: fontFamily,
-                fontWeight,
+                fontWeight: fontWeight,
                 textStrikethrough: fragment.NSStrikethrough ? 'single' : null,
                 textUnderline: fragment.NSUnderline ? 'single' : null,
             }),
