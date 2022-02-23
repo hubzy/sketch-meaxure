@@ -7,9 +7,11 @@ var _ = function (str, ...data) {
         return data[idx];
     });
 }
+
 function loadLanguage(obj) {
     if (obj && obj instanceof Object) I18N = obj;
 }
+
 function onInitOK() {
     $(document)
         .on('contextmenu', function (event) {
