@@ -447,8 +447,8 @@ main {
 
 .screen-viewer {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 101vw;
+    height: 102.5vh;
     background: #191919 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEUAAAAAAAClZ7nPAAAAAnRSTlMAUvP2/eAAAAARSURBVAjXY6ASYD6ATlAHAADy5gMN0fCqFwAAAABJRU5ErkJggg==);
     background-size: 16px 16px;
     overflow: auto;
