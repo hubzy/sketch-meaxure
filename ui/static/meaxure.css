@@ -36,7 +36,7 @@ body {
     font-size: 12px;
     color: #989A9C;
     background: #191919;
-    letter-spacing: 1px;
+    letter-spacing: 0;
     overflow: hidden;
 }
 
@@ -45,7 +45,7 @@ header {
     width: 430px;
     bottom: 0px;
     left: 50%;
-    height: 80px;
+    height: 40px;
     display: flex;
     align-items: center;
     z-index: 215;
@@ -53,7 +53,7 @@ header {
 }
 header:hover .header-center{
     opacity: 1;
-    bottom: 2.5vh;
+    bottom: 0px;
 }
 .header-right{
     height: 45px;
@@ -64,19 +64,19 @@ header .header-center{
     transition: all 0.5s;
     opacity: 0.6;
     position: fixed;
-    bottom: -10px;
+    bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
     height: 40px;
     background: #0F0F0F;
-    border-radius: 12px;
+    border-radius: 6px 6px 0;
     overflow: hidden;
 }
 
 header .header-center {
     display: flex;
     flex: 1;
-    background: #000;
+    background: #232527;
 }
 
 header .header-center .zoom-widget {
