@@ -63,7 +63,7 @@ export function exportable(context) {
 
       // create symbol
       if (option.hasOwnProperty('symbol') && option.symbol) {
-        const groups = MSLayerArray.arrayWithLayers([slice, layer]);
+        const groups = MSLayerArray.arrayWithLayers([layer, slice]);
         if (MSSymbolCreator.canCreateSymbolFromLayers(groups)) {
           MSSymbolCreator.createSymbolFromLayers_withName_onSymbolsPage(groups, name, true);
           group.ungroup();
