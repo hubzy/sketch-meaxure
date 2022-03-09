@@ -63,6 +63,6 @@ export function unit() {
     //     hasCurrent = localize('Custom') + ' (' + state.scale + ', ' + state.unit + ')';
     // }
     unitHtml.push('<h3>' + localize('Unit switch') +
-        '</h3>', '<p>' + hasCurrent + '</p>','<ul>', unitCurrent, unitList.join(''), '</ul>');
+        '</h3>', '<p>' + hasCurrent + ' __' + localize('Unit switch') + '</p>','<ul>', unitCurrent, unitList.join(''), '</ul>');
     document.querySelector('#unit').innerHTML = unitHtml.join('');
 }
