@@ -13,7 +13,7 @@ export function hashChangeEvents() {
                 shouldBackToAnother = false;
             }
         }
-        navigateByURLHash();
+        navigateByURLHash(false);
     });
 }
 export function setShouldBackToAnother(value: boolean) {
