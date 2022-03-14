@@ -181,5 +181,6 @@ textarea {
 	--active-background: rgba(51, 132, 246,0.65);
 	--hover-background: rgba(51, 132, 246,0.25);
 	--pop-background:#0F0F0F;
-	--content-background: rgba(0,0,0,0.25)
+	--content-background: rgba(0,0,0,0.25);
+	--text-color: rgba(255,255,255,1);
 }

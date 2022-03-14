@@ -62,7 +62,7 @@ header:hover .header-center{
 
 header .header-center{
     transition: all 0.5s;
-    opacity: 0.85;
+    opacity: 0.65;
     position: fixed;
     bottom: 0px;
     left: 50%;
@@ -246,7 +246,7 @@ header .header-left {
     cursor: pointer;
 }
 .unit-box li:hover label {
-    color: #FFF;
+    color: var(--text-color);
 }
 
 .page-list label span,
@@ -568,7 +568,7 @@ main {
     transform: translateX(-50%);
     content: attr(data-width);
     font-size: 12px;
-    color: #FFF;
+    color: var(--text-color);
     height: 12px;
     line-height: 12px;
     padding: 4px;
@@ -723,7 +723,7 @@ main {
     content: attr(data-index);
     font-size: 12px;
     display: block;
-    color: #FFF;
+    color: var(--text-color);
     text-align: center;
     width: 100%;
     height: 100%;
@@ -895,7 +895,7 @@ main {
     line-height: 18px;
     height: 24px;
     font-size: 12px;
-    color: #FFF;
+    color: var(--text-color);
     text-align: center;
     outline: 0;
     resize: none;
@@ -912,7 +912,7 @@ main {
     font-weight: 400;
     position: 0;
     margin: 0 0 16px;
-    color: #FFF;
+    color: var(--text-color);
 }
 
 .context h4:before {
@@ -1090,7 +1090,7 @@ main {
     text-align: center;
     font-size: 12px;
     font-weight: 400;
-    color: #FFF;
+    color: var(--text-color);
 }
 
 .pages-select h3 {
@@ -1175,7 +1175,7 @@ main {
 
 .exportable li a {
     display: flex;
-    color: #FFF;
+    color: var(--text-color);
     text-decoration: none;
     outline: 0;
     align-items: center;
@@ -1284,7 +1284,7 @@ main {
 .color-list h3 {
     margin: 0 0 4px;
     padding: 0;
-    color: #FFF;
+    color: var(--text-color);
     font-size: 12px;
     font-weight: 400;
     overflow: hidden;
@@ -1298,7 +1298,7 @@ main {
 }
 
 .artboard-list li.active small {
-    color: #FFF;
+    color: var(--text-color);
 }
 
 .empty {
@@ -1322,7 +1322,7 @@ main {
     border-radius: 4px;
     background-color: var(--background-color);
     border: 1px solid rgba(255, 255, 255, .16);
-    color: #FFF;
+    color: var(--text-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, .32);
     z-index: 9999;
     display: none;
