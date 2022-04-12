@@ -18,7 +18,7 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 
 
 ## 👍推荐相关项目
-[files-preview](https://gitee.com/Jioho/files-preview) 静态文件部署项目(UI界面好看)
+[files-preview-three](https://gitee.com/hubzyy/files-preview-three) 静态文件部署项目(UI界面好看)
 
 [SequenceAnimationMerge](https://gitee.com/hubzyy/sequence-animation-merge) 序列针合成CSS动画交付前端工具
 
