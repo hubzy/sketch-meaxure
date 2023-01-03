@@ -35,13 +35,15 @@ export function renderCodeTemplate(layerData: LayerData): string {
     }
     var ios = [];
     if (layerData.type == "text") {
+        let layerDataColor;
+        layerData.color.rgb == undefined ? layerDataColor = 'undefined' : layerDataColor =  "[UIColor colorWithRed:" + layerData.color.rgb.r + "/255.0 green:" + layerData.color.rgb.g + "/255.0 blue:" + layerData.color.rgb.b + "/255.0 alpha:" + layerData.color.alpha + "/255.0];"
         ios.push('<div id="ios-panel"  class="code-item item">', '<label><textarea id="css" rows="6" readonly="readonly">' +
             "UILabel *label = [[UILabel alloc] init];\r\n" +
             "label.frame = CGRectMake(" + scaleSize(layerData.rect.x) + "\, " + scaleSize(layerData.rect.y) + "\, " +
             scaleSize(layerData.rect.width) + "\, " + scaleSize(layerData.rect.height) + ");\r\n" +
             "label.text = \@\"" + layerData.content + "\";\r\n" +
             "label.font = [UIFont fontWithName:\@\"" + layerData.fontFace + "\" size:" + scaleSize(layerData.fontSize) + "];\r\n" +
-            "label.textColor = [UIColor colorWithRed:" + layerData.color.rgb.r + "/255.0 green:" + layerData.color.rgb.g + "/255.0 blue:" + layerData.color.rgb.b + "/255.0 alpha:" + layerData.color.alpha + "/255.0];\r\n" +
+            "label.textColor = "+ layerDataColor +"\r\n" +
             '</textarea></label>', '</div>');
     } else if (layerData.type == "shape") {
         ios.push('<div id="ios-panel" class="code-item item">', '<label><textarea id="css" rows="6" readonly="readonly">' +
