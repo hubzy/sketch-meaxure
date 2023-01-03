@@ -2,6 +2,8 @@
 import sketch from 'sketch'
 import { localize } from "./common/language";
 
+const SketchVersion = sketch.version.sketch ;
+
 export function markAddSlice() {
   sketch.UI.message(localize("请使用快捷键control shift s 💖"))
 }
@@ -18,7 +20,8 @@ export function exportable(context) {
   const Slices = {
     slice: function (layer, option) {
       const name = layer.name();
-      const layers = MSLayerArray.arrayWithLayer(layer);
+      let layers;
+      SketchVersion >= '84' ? layers = [layer] : layers = MSLayerArray.arrayWithLayer(layer);
       const group = MSLayerGroup.groupWithLayers(layers);
       group.setName(name);
       const slice = MSSliceLayer.sliceLayerFromLayer(layer);
@@ -63,7 +66,8 @@ export function exportable(context) {
 
       // create symbol
       if (option.hasOwnProperty('symbol') && option.symbol) {
-        const groups = MSLayerArray.arrayWithLayers([layer, slice]);
+        let groups;
+        SketchVersion >= '84' ? groups = [layer, slice] : groups = MSLayerArray.arrayWithLayers([layer, slice]);
         if (MSSymbolCreator.canCreateSymbolFromLayers(groups)) {
           MSSymbolCreator.createSymbolFromLayers_withName_onSymbolsPage(groups, name, true);
           group.ungroup();
