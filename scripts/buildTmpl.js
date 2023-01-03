@@ -19,10 +19,12 @@ const config = getUIConfig({});
 const compiler = webpack(config);
 const outputFileSystem = new webpack.MemoryOutputFileSystem()
 compiler.outputFileSystem = outputFileSystem;
+
 compiler.run((err, stats) => {
     if (stats.hasErrors()) {
         throw new Error(stats.toJson().errors);
     }
+    mkdirsSync(path.resolve(skpmConfig.main, 'Contents', 'Resources'))
     let template = makeTemplate(outputFileSystem, __dirname + '/index.js');
     let templatePath = path.resolve(skpmConfig.main, 'Contents', 'Resources', 'template.html');
     fs.writeFileSync(templatePath, template);
@@ -31,6 +33,18 @@ compiler.run((err, stats) => {
     fs.writeFileSync(jsSrc, onlineJS + "console.log('"+'onlineJS:'+toDate+"')");
 
 });
+
+// 递归创建目录 同步方法
+function mkdirsSync(dirname) {
+    if (fs.existsSync(dirname)) {
+      return true;
+    } else {
+      if (mkdirsSync(path.dirname(dirname))) {
+        fs.mkdirSync(dirname);
+        return true;
+      }
+    }
+  }
 function makeTemplateJs(wpfs, filename) {
     return wpfs.readFileSync(filename);
 }
