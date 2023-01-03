@@ -5,6 +5,8 @@
 > 而我在[jebbs](https://github.com/qjebbs) `Sketch MeaXure`的基础上进行优化升级,感谢🙏两位大佬。
 Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用Sketch JavaScript API。
 ## 安装
+⚠️macOS Ventura13.0请下载sketch 94版本～
+
 - [进入下载页面](https://gitee.com/hubzyy/sketch-meaxure/releases)
 - 下载 `sketch-meaxure.sketchplugin.zip`
 - 解压缩
@@ -17,16 +19,10 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 
 
 
-## 👍推荐相关项目
-[files-preview-three](https://gitee.com/hubzyy/files-preview-three) 静态文件部署项目(UI界面好看)
-
-[SequenceAnimationMerge](https://gitee.com/hubzyy/sequence-animation-merge) 序列针合成CSS动画交付前端工具
-
-
-
 ## 改进
 
 用户可以识别的改进：
+
 1. 完全适用于最新版本的Sketch（v7.0）。
 1. 最新的`色调`功能支持。
 1. 轻松调整标记的大小，而不必担心破坏它们。 （`调整大小限制`功能）。
@@ -34,9 +30,10 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 1. 自定义导出画板的顺序。
 1. 更好地显示文本片段。
 1. 重新组织功能和面板。
-[@jebbs](https://github.com/qjebbs/sketch-meaxure)GitHub
+   [@jebbs](https://github.com/qjebbs/sketch-meaxure)GitHub
 
 ## 二次改进
+
 1. 预览[Demo](http://hubzyy.gitee.io/sketch-meaxure/)
 1. 添加瀑布流展示、方便预览、查找设计稿
 1. 导出新增`icons`文件夹，文件夹放置缩略图，便于网络跟快的加载。
@@ -50,3 +47,30 @@ Sketch MeaXure是使用TypeScript对`Sketch Measure`的重新实现，它使用S
 ## 注意
 
 如果您在管理由Sketch Measure创建的标记（切换隐藏/锁定，删除和导出）时遇到问题，请运行菜单“插件-Sketch MeaXure-帮助-”。
+
+
+
+## 👍推荐相关项目
+
+### files-preview-three
+
+为了更好的管理管理导出的项目设计文件，弥补`meaxure`对项目管理上的缺失。
+
+给大家推荐[files-preview-three](https://gitee.com/hubzyy/files-preview-three) 静态文件管理，使项目预览上体验更佳。
+
+【新增】支持模型文件`gib` `gltf` 的预览，方便对模型文件预览，也方便了模型文件的研发对接，同时内嵌了[three-gltf-viewer](https://github.com/donmccurdy/three-gltf-viewer)方便模型调试。
+
+![imga1](https://gitee.com/hubzyy/files-preview-three/raw/three/assets/01.png)
+
+#### files-preview-three更新日志
+
+- **新增文档模式**
+- 支持预览 gif、bmp、webp、tif、svga 格式文件
+- 项目封面支持 gif 格式
+- 修复了 CentOS 下的运行问题
+- 优化图片预览体验
+- 新增支持模型gib gltf文件预览
+- 内嵌[three-gltf-viewer](https://github.com/donmccurdy/three-gltf-viewer)
+- 外部资源改为本地资源
+- 简化了md文档目录
+- 其他bug修复...
